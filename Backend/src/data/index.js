@@ -1,3 +1,3 @@
-import { roleData, userData } from './mongodb/index.js'
+import { roleData, userData, categoryData, productData } from './mongodb/index.js'
 
-export {roleData, userData}
+export {roleData, userData, categoryData, productData}

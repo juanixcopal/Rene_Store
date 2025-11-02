@@ -16,7 +16,12 @@ const env = {
   // MYSQL_DATABASE: process.env.MYSQL_DATABASE || 'invitapro',
 
   JWT_SECRET: process.env.JWT_SECRET || '05xkc6VM',
-  JWT_EXPIRESIN: process.env.JWT_EXPIRESIN || '6h'
+  JWT_EXPIRESIN: process.env.JWT_EXPIRESIN || '6h',
+
+  CLOUDINARY_CLOUD_NAME: process.env.CLOUDINARY_CLOUD_NAME,
+  CLOUDINARY_API_KEY: process.env.CLOUDINARY_API_KEY,
+  CLOUDINARY_API_SECRET:process.env.CLOUDINARY_API_SECRET
+
 }
 
 export default env

@@ -4,6 +4,7 @@ import ValidationMiddleware from './validation.middleware.js'
 import ServiceSelectMiddleware from './service-select.middleware.js'
 import JwtMiddleware from './jwt.middleware.js'
 import RolMiddleware from './rol-middleware.js'
+import uploadMiddleware from './upload.middleware.js'
 
 export {
   NotFoundMiddleware,
@@ -11,5 +12,6 @@ export {
   ValidationMiddleware,
   ServiceSelectMiddleware,
   JwtMiddleware,
-  RolMiddleware
+  RolMiddleware,
+  uploadMiddleware
 }

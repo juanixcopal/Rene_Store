@@ -8,7 +8,7 @@ import timeout from 'connect-timeout'
 
 import { NotFoundMiddleware, ErrorMiddleware } from '../middlewares/index.js'
 
-import {userRoutes, rolRoutes} from './index.js'
+import {userRoutes, rolRoutes, categoryRoutes, productRoutes} from './index.js'
 
 export default ({ config }) => {
     const { SERVER_TIMEOUT } = config
@@ -25,8 +25,10 @@ export default ({ config }) => {
   
     apiRoutes.use('/user', userRoutes())
     apiRoutes.use('/rol', rolRoutes())
+    apiRoutes.use('/category', categoryRoutes())
+    apiRoutes.use('/product', productRoutes())
   
-    router.use('/renielStore', apiRoutes)
+    router.use('/api', apiRoutes)
     router.use(NotFoundMiddleware)
     router.use(ErrorMiddleware)
   

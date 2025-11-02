@@ -20,7 +20,7 @@ export default () => {
       }
     )
 
-    router.get('/query', [ValidationMiddleware, ServiceSelectMiddleware, JwtMiddleware, RolMiddleware], (request, response) => {
+    router.get('/query', [ValidationMiddleware, ServiceSelectMiddleware, JwtMiddleware], (request, response) => {
       const { service } = request.headers
         const moduleKey = service
       routerCallback({ request, response, moduleKey, controller: userController })

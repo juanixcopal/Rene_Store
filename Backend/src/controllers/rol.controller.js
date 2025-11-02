@@ -1,10 +1,9 @@
-export default ({ rolServices, helpersObject }) => {
+export default ({ rolServices }) => {
   return async ({ request, moduleKey }) => {
     try {
       if (rolServices[moduleKey]) {
         const resultService = await rolServices[moduleKey]({
           request,
-          helpersObject
         })
 
         const { status } = resultService
