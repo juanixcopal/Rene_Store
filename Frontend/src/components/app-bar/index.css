@@ -1,0 +1,30 @@
+.container-popover-profile {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.container-information-user {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.container-logout {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  padding: 10px;
+  width: 100%;
+}
+
+.container-logout:hover {
+  background: #e8eff3;
+  border-radius: 8px;
+}
+
+.css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
+  border-right: 0px !important;
+}
