@@ -1,34 +1,17 @@
-import './index.css'
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
-import { ThemeProvider } from '@mui/material'
-import theme from './theme/index.js'
-import AppBarInvitaPRO from './components/app-bar/index.js'
-import RoutesInvitaPRO from './components/app-bar/routes'
-import AuthProvider from './provider/global-provider.js'
-// import { AlertProvider } from './provider/alert.provider'
-import { AlertProvider } from './provider/alert-provider.js'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-const App = () => {
-  return (
-    <BrowserRouter>
-      <AppBarInvitaPRO>
-        <AlertProvider>
-          <RoutesInvitaPRO />
-        </AlertProvider>
-      </AppBarInvitaPRO>
-    </BrowserRouter>
-  )
-}
-
-const root = ReactDOM.createRoot(document.getElementById('root'))
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <ThemeProvider theme={theme}>
-    <React.StrictMode>
-      <AuthProvider>
-        <App />
-      </AuthProvider>
-    </React.StrictMode>
-  </ThemeProvider>
-)
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
