@@ -7,15 +7,16 @@ import theme from './theme/index.js'
 import RoutesRenielStore from './components/app-bar/routes.js';
 import AuthProvider from './provider/global-provider.js'
 import { AlertProvider } from './provider/alert-provider.js'
+import RenielStoreAppBar from './components/app-bar/index.js';
 
 const App = () => {
     return(
         <BrowserRouter>
-            {/* <AppBarInvitaPRO> */}
+            <RenielStoreAppBar>
                 <AlertProvider>
                     <RoutesRenielStore />
                 </AlertProvider>
-            {/* </AppBarInvitaPRO> */}
+            </RenielStoreAppBar>
         </BrowserRouter>
     )
 }

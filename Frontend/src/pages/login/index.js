@@ -1,15 +1,12 @@
-import { useState } from 'react';
 import { Box, TextField, Button, Typography, Link, Card } from '@mui/material';
-import './index.css';
 import logo from '../../images/logo-login.png'
+import { useFetchInitLogin } from '../../hooks/login/index.js'
 
 const LoginPage = () => {
-  const [isRegister, setIsRegister] = useState(false);
 
-  const handleToggle = () => {
-    setIsRegister(!isRegister);
-  };
+  const loginHook = useFetchInitLogin()
 
+  const {isRegister, handleToggle, handleInput, loginAction} = loginHook
 
   return (
     <Box
@@ -20,7 +17,6 @@ const LoginPage = () => {
         overflow: 'hidden'
       }}
     >
-      {/* Contenedor animado */}
       <Box
         sx={{
           display: 'flex',
@@ -36,9 +32,9 @@ const LoginPage = () => {
           <Card style={{justifyContent: 'center', alignItems: 'center'}} sx={{padding: '40px', gap: '30px'}}>
             <Typography fontSize={45} fontWeight={500} color='#3E2F2F'>Iniciar sesión</Typography>
             <Box component="form" sx={{width: '100%', maxWidth: 260, display: 'flex', flexDirection: 'column', gap: '20px' }}>
-              <TextField label="Correo electrónico" variant="outlined" fullWidth />
-              <TextField label="Contraseña" type="password" variant="outlined" fullWidth />
-              <Button variant="contained">
+              <TextField label="Correo electrónico" name="email" onChange={handleInput} required/>
+              <TextField label="Contraseña" name="password" onChange={handleInput} type="password" required/>
+              <Button variant="contained" type='submit' onClick={loginAction}>
                 INICIAR SESIÓN
               </Button>
             </Box>
@@ -61,8 +57,6 @@ const LoginPage = () => {
 
         </Card>
 
-
-        {/* Logo en la parte derecha */}
         <Card style={{background: '#F6EFEE', width: '50%', justifyContent: 'center', alignItems: 'center', flexShrink: 0}} sx={{borderRadius: '0px', border: 'none'}}>
           <Box sx={{ width: '400px', height: '400px', display: 'flex', alignItems: 'center', justifyContent: 'center',}}>
               <img style={{ width: '580px', height: '580px' }} src={logo} alt='Logo' />
@@ -70,9 +64,6 @@ const LoginPage = () => {
         </Card>
 
       </Box>
-
-
-
 
       <Box
         sx={{
