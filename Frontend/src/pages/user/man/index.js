@@ -32,13 +32,13 @@ const ManPage = () => {
             {value === index && <Box sx={{ paddingTop: '30px' }}>{children}</Box>}
           </div>
         );
-      }
+    }
       
-      CustomTabPanel.propTypes = {
-        children: PropTypes.node,
-        index: PropTypes.number.isRequired,
-        value: PropTypes.number.isRequired,
-      };
+    CustomTabPanel.propTypes = {
+      children: PropTypes.node,
+      index: PropTypes.number.isRequired,
+      value: PropTypes.number.isRequired,
+    };
 
     return(
         <>
