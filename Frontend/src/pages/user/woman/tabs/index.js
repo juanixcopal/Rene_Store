@@ -3,7 +3,7 @@ import FootwarTab from "./footwear"
 import BlousesTab from "./blouses"
 import PantsTab from "./pants"
 
-export const MainTabWomen = () => {
+export const MainTabWoman = () => {
     return{
         AllProductsTab,
         FootwarTab,

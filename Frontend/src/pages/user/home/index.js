@@ -6,9 +6,9 @@ const HomePage = () => {
 
     const homeHook = useFetchInitHome()
 
-    const { fetch5ManProducts, fetch5WomenProducts } = homeHook
+    const { fetch5ManProducts, fetch5WomanProducts } = homeHook
     const {fiveManProducts} = fetch5ManProducts
-    const {fiveWomenProducts} = fetch5WomenProducts 
+    const {fiveWomanProducts} = fetch5WomanProducts 
 
     return(
         <>
@@ -16,7 +16,7 @@ const HomePage = () => {
             <Typography fontSize={60} fontWeight={400}>Para Mujer</Typography>
 
             <Grid container spacing={'100px'} sx={{width: '100%', justifyContent: 'center'}} >
-                {fiveWomenProducts.map(item => {
+                {fiveWomanProducts.map(item => {
                     return(
                         <Grid size={{ lg: 2, md: 12, sm: 12, xs: 12 }} key={item._id}>
                             <Card sx={{minHeight: '400px', minWidth: '300px'}}>
@@ -30,7 +30,7 @@ const HomePage = () => {
                 })}
             </Grid>
 
-            <Button variant="contained" endIcon={<ArrowRightAltOutlinedIcon/>}>
+            <Button variant="contained" endIcon={<ArrowRightAltOutlinedIcon/>} href="/woman">
                 Ver mas
             </Button>
         </Box>

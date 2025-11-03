@@ -1,11 +1,11 @@
-import { useFetch5ManProducts, useFetch5WomenProducts } from './fetch-data.js'
+import { useFetch5ManProducts, useFetch5WomanProducts } from './fetch-data.js'
 
 export const useFetchInitHome = () => {
     const fetch5ManProducts = useFetch5ManProducts()
-    const fetch5WomenProducts = useFetch5WomenProducts()
+    const fetch5WomanProducts = useFetch5WomanProducts()
 
     return {
         fetch5ManProducts,
-        fetch5WomenProducts
+        fetch5WomanProducts
     }
 }

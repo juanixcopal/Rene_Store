@@ -60,7 +60,7 @@ const ManPage = () => {
             <AllProductsTab useFetchInit={manHook} />
         </CustomTabPanel>
         <CustomTabPanel value={valueTab} index={1}>
-            <FootwarTab />
+            <FootwarTab useFetchInit={manHook} />
         </CustomTabPanel>
         <CustomTabPanel value={valueTab} index={2}>
             <ShirtsTab />

@@ -1,4 +1,4 @@
-const FootwarTab = () => {
+const FootwarTab = ({useFetchInit}) => {
     return(
         <>
         Calzado

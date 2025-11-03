@@ -2,15 +2,15 @@ import { Box, Card, Grid, Typography } from "@mui/material"
 
 
 const AllProductsTab = ({useFetchInit}) => {
-    const {fetchWomenProducts} = useFetchInit
+    const {fetchWomanProducts} = useFetchInit
 
-    const {womenProducts} = fetchWomenProducts
+    const {womanProducts} = fetchWomanProducts
     
     return(
         <>
         <Box sx={{display: 'flex', flexDirection: 'column', position: 'relative', overflow: 'hidden', justifyContent: 'center', alignItems: 'center'}}>
             <Grid container columnGap={'100px'} rowGap={'30px'} sx={{width: '100%', justifyContent: 'center'}}>
-                {womenProducts.map(item => {
+                {womanProducts.map(item => {
                     return(
                         <Grid size={{ lg: 2.5, md: 12, sm: 12, xs: 12 }} key={item._id}>
                             <Card sx={{minHeight: '400px', minWidth: '300px', alignItems: 'center'}}>

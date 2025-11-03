@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useFetchWomenProducts } from './fetch-data'
+import { useFetchWomanProducts } from './fetch-data'
 
 export const useFetchInitMan = () => {
     const [valueTab, setValueTab] = useState(0)
@@ -8,11 +8,11 @@ export const useFetchInitMan = () => {
         setValueTab(newValue)
     }
 
-    const fetchWomenProducts = useFetchWomenProducts()
+    const fetchWomanProducts = useFetchWomanProducts()
 
     return{
         valueTab,
         handleChangeValueTab,
-        fetchWomenProducts
+        fetchWomanProducts
     }
 }

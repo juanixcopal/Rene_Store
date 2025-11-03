@@ -1,16 +1,16 @@
 import { Typography, Grid, Tabs, Tab, Box } from "@mui/material"
 import PropTypes from 'prop-types';
-import { MainTabWomen } from './tabs/index.js'
-import { useFetchInitMan } from '../../../hooks/women/index.js'
+import { MainTabWoman } from './tabs/index.js'
+import { useFetchInitMan } from '../../../hooks/woman/index.js'
 
-const WomenPage = () => {
+const WomanPage = () => {
 
-    const MainTabs = MainTabWomen()
+    const MainTabs = MainTabWoman()
     const { AllProductsTab, FootwarTab, PantsTab, BlousesTab } = MainTabs
 
 
-    const womenHook = useFetchInitMan()
-    const {valueTab, handleChangeValueTab} = womenHook
+    const womanHook = useFetchInitMan()
+    const {valueTab, handleChangeValueTab} = womanHook
 
     function a11yProps(index) {
         return {
@@ -59,7 +59,7 @@ const WomenPage = () => {
         </Grid>
 
         <CustomTabPanel value={valueTab} index={0}>
-            <AllProductsTab useFetchInit={womenHook} />
+            <AllProductsTab useFetchInit={womanHook} />
         </CustomTabPanel>
         <CustomTabPanel value={valueTab} index={1}>
             <FootwarTab />
@@ -74,4 +74,4 @@ const WomenPage = () => {
     )
 }
 
-export default WomenPage
+export default WomanPage

@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react'
-import { getProductsForWomen } from '../../data/women/get.js'
+import { getProductsForWoman } from '../../data/woman/get.js'
 import ExecutionPermit from '../../helpers/execution-permit-helper.js'
 
-export const useFetchWomenProducts = () => {
-    const [womenProducts, setWomenProducts] = useState([])
+export const useFetchWomanProducts = () => {
+    const [womanProducts, setWomanProducts] = useState([])
   
     useEffect(() => {
       ;(async () => {
-        await getProductsForWomen()
+        await getProductsForWoman()
           .then(({ data }) => {
-            setWomenProducts(data)
+            setWomanProducts(data)
           })
           .catch(({ response }) => {
             ExecutionPermit({ response })
@@ -17,5 +17,5 @@ export const useFetchWomenProducts = () => {
       })()
     }, [])
   
-    return { womenProducts }
+    return { womanProducts }
 }

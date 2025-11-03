@@ -65,7 +65,7 @@ const RenielStoreAppBar = ({children}) => {
   const menuItems = [
     { id: 'home', label: 'Inicio', path: '/home' },
     { id: 'man', label: 'Hombre', path: '/man' },
-    { id: 'women', label: 'Mujer', path: '/women' },
+    { id: 'woman', label: 'Mujer', path: '/woman' },
     { id: 'orders', label: 'Pedidos', path: '/orders' },
   ];
 

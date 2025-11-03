@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { get5ManProducts, get5WomenProducts } from '../../data/home/get.js'
+import { get5ManProducts, get5WomanProducts } from '../../data/home/get.js'
 import ExecutionPermit from '../../helpers/execution-permit-helper.js'
 
 export const useFetch5ManProducts = () => {
@@ -20,14 +20,14 @@ export const useFetch5ManProducts = () => {
     return { fiveManProducts }
 }
 
-export const useFetch5WomenProducts = () => {
-    const [fiveWomenProducts, setFiveWomenProducts] = useState([])
+export const useFetch5WomanProducts = () => {
+    const [fiveWomanProducts, setFiveWomanProducts] = useState([])
   
     useEffect(() => {
       ;(async () => {
-        await get5WomenProducts()
+        await get5WomanProducts()
           .then(({ data }) => {
-            setFiveWomenProducts(data)
+            setFiveWomanProducts(data)
           })
           .catch(({ response }) => {
             ExecutionPermit({ response })
@@ -35,5 +35,5 @@ export const useFetch5WomenProducts = () => {
       })()
     }, [])
   
-    return { fiveWomenProducts }
+    return { fiveWomanProducts }
 }

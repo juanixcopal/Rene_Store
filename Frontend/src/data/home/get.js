@@ -9,11 +9,11 @@ export const get5ManProducts = async params => {
     })
 }
 
-export const get5WomenProducts = async params => {
+export const get5WomanProducts = async params => {
     return await instanceAPIRenielStore.get('/product/query', {
       params,
       headers: {
-        service: '5-product-women'
+        service: '5-product-woman'
       }
     })
 }
