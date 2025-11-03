@@ -1,4 +1,5 @@
 const ExecutionPermit = ({ response }) => {
+  
   if (!response) {
     console.error('No response object provided to ExecutionPermit')
     return
@@ -9,7 +10,7 @@ const ExecutionPermit = ({ response }) => {
     window.location.reload()
     window.location.href = '/login'
   } else if (response.status === 403) {
-    window.location.href = '/store'
+    window.location.href = '/home'
   } else {
     console.error('Unhandled status code in ExecutionPermit:', response.status)
   }
