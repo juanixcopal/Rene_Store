@@ -53,7 +53,7 @@ const HomePage = () => {
                 })}
             </Grid>
 
-            <Button variant="contained" endIcon={<ArrowRightAltOutlinedIcon/>}>
+            <Button variant="contained" endIcon={<ArrowRightAltOutlinedIcon/>} href="/man">
                 Ver mas
             </Button>
         </Box>

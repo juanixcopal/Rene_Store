@@ -63,10 +63,10 @@ const RenielStoreAppBar = ({children}) => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname)
 
   const menuItems = [
-    { id: 'inicio', label: 'Inicio', path: '/home' },
-    { id: 'hombre', label: 'Hombre', path: '/man' },
-    { id: 'mujer', label: 'Mujer', path: '/women' },
-    { id: 'pedidos', label: 'Pedidos', path: '/orders' },
+    { id: 'home', label: 'Inicio', path: '/home' },
+    { id: 'man', label: 'Hombre', path: '/man' },
+    { id: 'women', label: 'Mujer', path: '/women' },
+    { id: 'orders', label: 'Pedidos', path: '/orders' },
   ];
 
   const isPublic = publicRoutes.includes(currentPath)  

@@ -226,13 +226,16 @@ const theme = createTheme({
         }
       }
     },
-    // MuiBadge: {
-    //   styleOverrides: {
-    //     root: {
-    //       background: '#FFFFFF'
-    //     }
-    //   }
-    // }
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          fontFamily: 'Playfair Display',
+          fontWeight: 400,
+          fontSize: '16px',
+          textTransform: 'inherit'
+        }
+      }
+    }
   }
 })
 
