@@ -1,6 +1,5 @@
 import { Box, Card, Grid, Typography } from "@mui/material"
 
-
 const AllProductsTab = ({useFetchInit}) => {
     const {fetchManProducts} = useFetchInit
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getProductsForMan, getProductsForManFootwear } from '../../data/man/get.js'
+import { getProductsForMan, getProductsForManFootwear, getProductsForManShirts, getProductsForManPants } from '../../data/man/get.js'
 import ExecutionPermit from '../../helpers/execution-permit-helper.js'
 
 export const useFetchManProducts = () => {
@@ -20,14 +20,14 @@ export const useFetchManProducts = () => {
     return { manProducts }
 }
 
-export const useFetchMansFootwear = () => {
-  const [manProducts, setManProducts] = useState([])
+export const useFetchManFootwear = () => {
+  const [manFootwear, setManFootwear] = useState([])
 
   useEffect(() => {
     ;(async () => {
       await getProductsForManFootwear()
         .then(({ data }) => {
-          setManProducts(data)
+          setManFootwear(data)
         })
         .catch(({ response }) => {
           ExecutionPermit({ response })
@@ -35,5 +35,41 @@ export const useFetchMansFootwear = () => {
     })()
   }, [])
 
-  return { manProducts }
+  return { manFootwear }
+}
+
+export const useFetchManShirts = () => {
+  const [manShirts, setManShirts] = useState([])
+
+  useEffect(() => {
+    ;(async () => {
+      await getProductsForManShirts()
+        .then(({ data }) => {
+          setManShirts(data)
+        })
+        .catch(({ response }) => {
+          ExecutionPermit({ response })
+        })
+    })()
+  }, [])
+
+  return { manShirts }
+}
+
+export const useFetchManPants = () => {
+  const [manPants, setManPants] = useState([])
+
+  useEffect(() => {
+    ;(async () => {
+      await getProductsForManPants()
+        .then(({ data }) => {
+          setManPants(data)
+        })
+        .catch(({ response }) => {
+          ExecutionPermit({ response })
+        })
+    })()
+  }, [])
+
+  return { manPants }
 }
