@@ -48,13 +48,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   }
 }))
 
-const NavButton = styled(Button)(({ theme, active }) => ({
-  color: active ? '#8B4842' : '#3E2F2F',
+const NavButton = styled(Button)(() => ({
+  color: '#3E2F2F',
   textTransform: 'none',
   fontSize: '15px',
-  fontWeight: active ? 700 : 400,
   padding: '8px 20px',
-  borderRadius: 0
+  borderRadius: 0,
+  fontFamily: 'Playfair Display',
+  fontWeight: 500
 }))
 
 const publicRoutes = ['/login', '/login/']

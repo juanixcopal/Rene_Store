@@ -22,8 +22,8 @@ const ProductDetailsPage = () => {
         {loadingProductDetails && (
           <Grid container spacing={'50px'} justifyContent='center' alignItems='flex-start'>
             <Grid>
-              <Card sx={{ maxHeight: '580px', maxWidth: '480px' }}>
-                <img src={productDetails.image} height='500px' width='430px' alt='PRODUCT' />
+              <Card sx={{ maxHeight: '580px', maxWidth: '400px' }}>
+                <img src={productDetails.image} height='500px' width='340px' alt='PRODUCT' />
               </Card>
             </Grid>
 

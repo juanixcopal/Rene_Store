@@ -1,9 +1,12 @@
 import { Box, Card, Grid, Typography } from '@mui/material'
+import { useNavigate } from 'react-router-dom'
 
 const PantsTab = ({ useFetchInit }) => {
   const { fetchManPants } = useFetchInit
 
   const { manPants } = fetchManPants
+
+  const navigate = useNavigate()
 
   return (
     <>
@@ -25,7 +28,15 @@ const PantsTab = ({ useFetchInit }) => {
         >
           {manPants.map(item => {
             return (
-              <Grid size={{ lg: 2.5, md: 12, sm: 12, xs: 12 }} key={item._id}>
+              <Grid
+                size={{ lg: 2.5, md: 12, sm: 12, xs: 12 }}
+                key={item._id}
+                onClick={() => navigate(`/product-details/${item._id}`)}
+                sx={{
+                  cursor: 'pointer',
+                  '&:hover': { transform: 'scale(1.03)', transition: '0.3s' }
+                }}
+              >
                 <Card sx={{ minHeight: '400px', minWidth: '300px', alignItems: 'center' }}>
                   <img src={item.image} width='250px' height='350px' alt='PRODUCT' />
                 </Card>

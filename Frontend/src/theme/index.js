@@ -100,7 +100,6 @@ const theme = createTheme({
           borderRadius: '8px',
           '&:hover': {
             backgroundColor: '#7B2D26',
-            borderColor: '#7B2D26',
             color: '#FFFFFF',
             boxShadow: 'none',
             borderRadius: '8px'
@@ -222,7 +221,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           fontFamily: 'Playfair Display',
-          fontWeight: 400,
+          fontWeight: 500,
           fontSize: '16px',
           textTransform: 'inherit'
         }
