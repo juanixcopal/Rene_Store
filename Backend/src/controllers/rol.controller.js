@@ -3,7 +3,7 @@ export default ({ rolServices }) => {
     try {
       if (rolServices[moduleKey]) {
         const resultService = await rolServices[moduleKey]({
-          request,
+          request
         })
 
         const { status } = resultService

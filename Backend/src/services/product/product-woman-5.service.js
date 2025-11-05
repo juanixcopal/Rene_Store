@@ -1,9 +1,9 @@
-export default ({ roleData }) => {
-  return async ({}) => {
+export default ({ productData }) => {
+  return async () => {
     try {
-      const allRol = await roleData.findAll()
+      const products = await productData.find({ gender: 'Mujer' }, 5)
 
-      return allRol
+      return products
     } catch (error) {
       console.error(error)
       return {

@@ -3,17 +3,15 @@ export default ({ productData }) => {
     try {
       const { id } = request.params
 
-      const product = await productData.findById(id)
+      const products = await productData.find({ gender: id })
 
-      if (!product) return { status: 404, result: false, message: 'Producto no encontrado' }
-
-      return product
+      return products
     } catch (error) {
       console.error(error)
       return {
         status: 500,
         result: false,
-        message: 'Ocurrió un error al crear el rol'
+        message: 'Ocurrió un error al obtener todos los productos para hombres'
       }
     }
   }

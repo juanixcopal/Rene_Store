@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 
-export default (request, _, next) => {
+export default (request, response, next) => {
   const token = request.headers['token']
 
   if (!token) {

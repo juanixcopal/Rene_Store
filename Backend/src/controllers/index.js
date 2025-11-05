@@ -10,14 +10,9 @@ import makeRolController from './rol.controller.js'
 import makeCategoryController from './category.controller.js'
 import makeProductController from './product.controller.js'
 
-const userController = makeUserController({userServices, helpersObject})
-const rolController = makeRolController({rolServices})
-const categoryController = makeCategoryController({categoryServices})
-const productController = makeProductController({productServices})
+const userController = makeUserController({ userServices, helpersObject })
+const rolController = makeRolController({ rolServices })
+const categoryController = makeCategoryController({ categoryServices })
+const productController = makeProductController({ productServices })
 
-export {
-    userController,
-    rolController,
-    categoryController,
-    productController
-}
+export { userController, rolController, categoryController, productController }
