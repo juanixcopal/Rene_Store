@@ -1,5 +1,4 @@
 const ExecutionPermit = ({ response }) => {
-  
   if (!response) {
     console.error('No response object provided to ExecutionPermit')
     return

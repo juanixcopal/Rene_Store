@@ -1,9 +1,5 @@
 const OrdersPage = () => {
-    return(
-        <>
-        Pedidos
-        </>
-    )
+  return <>Pedidos</>
 }
 
 export default OrdersPage

@@ -7,7 +7,7 @@ const theme = createTheme({
     },
     secondary: {
       main: '#D8A39D'
-    },
+    }
   },
   components: {
     MuiAppBar: {
@@ -35,7 +35,7 @@ const theme = createTheme({
     MuiTextField: {
       defaultProps: {
         size: 'small',
-        fullWidth: true,
+        fullWidth: true
       },
       styleOverrides: {
         root: {
@@ -134,7 +134,7 @@ const theme = createTheme({
         fontStyle: 'normal',
         color: '#7B2D26',
         fontFamily: 'Playfair Display'
-      },
+      }
     },
     MuiPagination: {
       styleOverrides: {

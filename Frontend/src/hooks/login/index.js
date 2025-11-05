@@ -2,69 +2,66 @@ import { useState } from 'react'
 import { postLogin } from '../../data/login/post'
 
 export const useFetchInitLogin = () => {
+  const [login, setLogin] = useState({
+    email: '',
+    password: ''
+  })
 
-    const [login, setLogin] = useState({
-        email: '',
-        password: ''
-    })
+  const [message, setMessage] = useState({
+    message: '',
+    result: true
+  })
 
-    
+  const [isRegister, setIsRegister] = useState(false)
 
-    const [message, setMessage] = useState({
+  const handleToggle = () => {
+    setIsRegister(!isRegister)
+  }
+
+  const handleInput = event => {
+    setLogin({ ...login, [event.target.name]: event.target.value })
+
+    if (event.target.name === 'password') {
+      setMessage({
         message: '',
         result: true
-    })
+      })
+    }
+  }
 
-    const [isRegister, setIsRegister] = useState(false);
+  const loginAction = async e => {
+    e.preventDefault()
 
-    const handleToggle = () => {
-        setIsRegister(!isRegister);
-    };
-
-    const handleInput = event => {
-        setLogin({ ...login, [event.target.name]: event.target.value })
-
-        if (event.target.name === 'password') {
-            setMessage({
-                message: '',
-                result: true
-            })
+    await postLogin({ login })
+      .then(({ token, result }) => {
+        if (result) {
+          localStorage.clear()
+          localStorage.setItem('token', token)
+          window.location.href = '/home'
         }
-    }
+      })
+      .catch(({ response }) => {
+        if (response) {
+          const { message, result } = response.data
 
-    const loginAction = async e => {
-        e.preventDefault()        
-    
-        await postLogin({ login })
-          .then(({ token, result }) => {
-            if (result) {
-              localStorage.clear()
-              localStorage.setItem('token', token)
-              window.location.href = '/home'
-            }
+          setMessage({
+            message: message,
+            result: result
           })
-          .catch(({ response }) => {
-            if (response) {
-              const { message, result } = response.data
-    
-              setMessage({
-                message: message,
-                result: result
-              })
-            } else {
-              setMessage({
-                message: 'No hay comunicación con los servicios, verifica tu internet',
-                result: false
-              })
-            }
-        })
-    }    
+        } else {
+          setMessage({
+            message: 'No hay comunicación con los servicios, verifica tu internet',
+            result: false
+          })
+        }
+      })
+  }
 
-    return{
-        message,
-        isRegister,
-        handleInput,
-        loginAction,
-        handleToggle
-    }
+  return {
+    message,
+    isRegister,
+    handleInput,
+    loginAction,
+    handleToggle
+  }
 }
