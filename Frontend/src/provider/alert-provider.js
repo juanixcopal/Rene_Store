@@ -17,10 +17,9 @@ export const AlertProvider = ({ children }) => {
   const showAlert = useCallback((message, severity = 'success') => {
     setAlert({ open: true, message, severity })
 
-    // Auto hide the alert after 5 seconds
     setTimeout(() => {
       setAlert({ ...alert, open: false })
-    }, 5000)
+    }, 2000)
     // eslint-disable-next-line
   }, [])
 

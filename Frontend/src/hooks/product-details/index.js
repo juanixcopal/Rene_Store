@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useFetchProductDetails } from './fetch-data'
+import { useActions } from './actions.js'
 
 export const useFetchInitProductDetails = () => {
   const [idProduct, setIdProduct] = useState()
@@ -10,8 +11,13 @@ export const useFetchInitProductDetails = () => {
 
   const fetchProductDetails = useFetchProductDetails({ idProduct })
 
+  const actions = useActions({
+    idProduct
+  })
+
   return {
     handleChangeIdProduct,
-    fetchProductDetails
+    fetchProductDetails,
+    actions
   }
 }

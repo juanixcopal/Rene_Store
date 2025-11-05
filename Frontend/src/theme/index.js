@@ -162,29 +162,66 @@ const theme = createTheme({
     },
     MuiAlert: {
       styleOverrides: {
+        root: {
+          borderRadius: '8px',
+          fontFamily: 'Playfair Display',
+          border: '1px solid'
+        },
         standardSuccess: {
-          backgroundColor: '#E8F5E9',
-          color: '#1B5E20',
-          borderRadius: '8px'
+          backgroundColor: '#F1F8F4',
+          color: '#2D5738',
+          borderColor: '#7B9B82',
+          '& .MuiAlert-icon': {
+            color: '#4A7856'
+          }
         },
         standardError: {
-          backgroundColor: '#FFEBEE',
-          color: '#B71C1C',
-          borderRadius: '8px'
+          backgroundColor: '#FFF5F4',
+          color: '#571E19',
+          borderColor: '#C89692',
+          '& .MuiAlert-icon': {
+            color: '#7B2D26'
+          }
         },
         standardWarning: {
-          backgroundColor: '#FFFDE7',
-          color: '#E65100',
-          borderRadius: '8px'
+          backgroundColor: '#FFF9F0',
+          color: '#6B4423',
+          borderColor: '#D4A574',
+          '& .MuiAlert-icon': {
+            color: '#A0703B'
+          }
         },
         standardInfo: {
-          backgroundColor: '#E8F0FE',
-          color: '#084DC4',
-          borderRadius: '8px'
+          backgroundColor: '#F8F5F4',
+          color: '#3E2F2F',
+          borderColor: '#B8A8A3',
+          '& .MuiAlert-icon': {
+            color: '#7B6B66'
+          }
+        },
+        filledSuccess: {
+          backgroundColor: '#4A7856',
+          color: '#FFFFFF',
+          borderColor: '#4A7856'
+        },
+        filledError: {
+          backgroundColor: '#7B2D26',
+          color: '#FFFFFF',
+          borderColor: '#7B2D26'
+        },
+        filledWarning: {
+          backgroundColor: '#A0703B',
+          color: '#FFFFFF',
+          borderColor: '#A0703B'
+        },
+        filledInfo: {
+          backgroundColor: '#7B6B66',
+          color: '#FFFFFF',
+          borderColor: '#7B6B66'
         },
         message: {
           fontSize: '14px',
-          fontWeight: 600,
+          fontWeight: 500,
           fontFamily: 'Playfair Display'
         }
       }

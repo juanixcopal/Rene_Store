@@ -5,6 +5,7 @@ import ManPage from '../../pages/user/man/index.js'
 import WomanPage from '../../pages/user/woman/index.js'
 import OrdersPage from '../../pages/user/orders/index.js'
 import ProductDetailsPage from '../../pages/user/product-details/index.js'
+import CartPage from '../../pages/user/cart/index.js'
 
 const RoutesRenielStore = () => {
   return (
@@ -16,6 +17,7 @@ const RoutesRenielStore = () => {
       <Route path='/woman' Component={WomanPage} />
       <Route path='/orders' Component={OrdersPage} />
       <Route path='/product-details/:id' Component={ProductDetailsPage} />
+      <Route path='/cart' Component={CartPage} />
     </Routes>
   )
 }

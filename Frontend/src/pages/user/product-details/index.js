@@ -7,7 +7,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite'
 const ProductDetailsPage = () => {
   const { id } = useParams()
   const productDetailsHook = useFetchInitProductDetails()
-  const { handleChangeIdProduct, fetchProductDetails } = productDetailsHook
+  const { handleChangeIdProduct, fetchProductDetails, actions } = productDetailsHook
 
   useEffect(() => {
     handleChangeIdProduct(id)
@@ -15,6 +15,7 @@ const ProductDetailsPage = () => {
   }, [id])
 
   const { productDetails, loadingProductDetails } = fetchProductDetails
+  const { addToCart } = actions
 
   return (
     <>
@@ -47,7 +48,9 @@ const ProductDetailsPage = () => {
                 </Typography>
 
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, marginTop: 20 }}>
-                  <Button variant='contained'>Añadir a la cesta</Button>
+                  <Button variant='contained' onClick={addToCart}>
+                    Añadir a la cesta
+                  </Button>
                   <Button variant='outlined' endIcon={<FavoriteIcon />}>
                     Favorito
                   </Button>

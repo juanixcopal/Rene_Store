@@ -129,7 +129,7 @@ const RenielStoreAppBar = ({ children }) => {
                   <StyledInputBase placeholder='Buscar' inputProps={{ 'aria-label': 'search' }} />
                 </Search>
 
-                <IconButton component={Link} to='/carrito' sx={{ color: '#D8A39D' }}>
+                <IconButton component={Link} to='/cart' sx={{ color: '#D8A39D' }}>
                   <Badge badgeContent={0} color='secondary'>
                     <ShoppingCartOutlinedIcon />
                   </Badge>
