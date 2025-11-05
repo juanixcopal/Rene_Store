@@ -1,35 +1,31 @@
 import { instanceAPIRenielStore } from '../../config/data-source'
 
-export const getProductsForWoman = async params => {
+export const getProductsForWoman = async () => {
   return await instanceAPIRenielStore.get('/product/query/Mujer', {
-    params,
     headers: {
       service: 'product-for-gender'
     }
   })
 }
 
-export const getProductsForWomanFootwear = async params => {
+export const getProductsForWomanFootwear = async () => {
   return await instanceAPIRenielStore.get('/product/query/Mujer/Calzado', {
-    params,
     headers: {
       service: 'product-by-gender-category'
     }
   })
 }
 
-export const getProductsForWomanBlouses = async params => {
+export const getProductsForWomanBlouses = async () => {
   return await instanceAPIRenielStore.get('/product/query/Mujer/Blusas', {
-    params,
     headers: {
       service: 'product-by-gender-category'
     }
   })
 }
 
-export const getProductsForWomanPants = async params => {
+export const getProductsForWomanPants = async () => {
   return await instanceAPIRenielStore.get('/product/query/Mujer/Pantalones', {
-    params,
     headers: {
       service: 'product-by-gender-category'
     }

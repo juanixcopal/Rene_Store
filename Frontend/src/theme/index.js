@@ -80,39 +80,31 @@ const theme = createTheme({
           fontStyle: 'normal',
           fontWeight: 600,
           fontFamily: 'Playfair Display',
-          // maxHeight: '36px',
           boxShadow: 'none',
           borderRadius: '8px',
           '&:hover': {
-            backgroundColor: '#571e19',
+            backgroundColor: '#571E19',
             boxShadow: 'none',
             borderRadius: '8px'
           }
         },
         outlined: {
-          borderColor: '#01579B',
-          color: '#01579B',
+          backgroundColor: '#FFFFFF',
+          borderColor: '#7B2D26',
+          color: '#7B2D26',
           fontSize: '14px',
           fontStyle: 'normal',
           fontWeight: 600,
-          maxHeight: '36px',
           fontFamily: 'Playfair Display',
           boxShadow: 'none',
           borderRadius: '8px',
           '&:hover': {
-            borderColor: '#01579B',
-            backgroundColor: '#E8F0FE',
+            backgroundColor: '#7B2D26',
+            borderColor: '#7B2D26',
+            color: '#FFFFFF',
             boxShadow: 'none',
             borderRadius: '8px'
           }
-        },
-        text: {
-          color: '#01579B',
-          fontSize: '14px',
-          fontStyle: 'normal',
-          fontWeight: 600,
-          fontFamily: 'Playfair Display',
-          borderRadius: '8px'
         }
       }
     },

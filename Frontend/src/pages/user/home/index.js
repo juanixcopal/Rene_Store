@@ -1,6 +1,7 @@
 import { Box, Button, Card, Grid, Typography } from '@mui/material'
 import ArrowRightAltOutlinedIcon from '@mui/icons-material/ArrowRightAltOutlined'
 import { useFetchInitHome } from '../../../hooks/home/index'
+import { useNavigate } from 'react-router-dom'
 
 const HomePage = () => {
   const homeHook = useFetchInitHome()
@@ -8,6 +9,8 @@ const HomePage = () => {
   const { fetch5ManProducts, fetch5WomanProducts } = homeHook
   const { fiveManProducts } = fetch5ManProducts
   const { fiveWomanProducts } = fetch5WomanProducts
+
+  const navigate = useNavigate()
 
   return (
     <>
@@ -29,7 +32,15 @@ const HomePage = () => {
         <Grid container spacing={'100px'} sx={{ width: '100%', justifyContent: 'center' }}>
           {fiveWomanProducts.map(item => {
             return (
-              <Grid size={{ lg: 2, md: 12, sm: 12, xs: 12 }} key={item._id}>
+              <Grid
+                size={{ lg: 2, md: 12, sm: 12, xs: 12 }}
+                key={item._id}
+                onClick={() => navigate(`/product-details/${item._id}`)}
+                sx={{
+                  cursor: 'pointer',
+                  '&:hover': { transform: 'scale(1.03)', transition: '0.3s' }
+                }}
+              >
                 <Card sx={{ minHeight: '400px', minWidth: '300px' }}>
                   <img src={item.image} width='250px' height='350px' alt='PRODUCT' />
                 </Card>
@@ -72,7 +83,15 @@ const HomePage = () => {
         <Grid container spacing={'100px'} sx={{ width: '100%', justifyContent: 'center' }}>
           {fiveManProducts.map(item => {
             return (
-              <Grid size={{ lg: 2, md: 12, sm: 12, xs: 12 }} key={item._id}>
+              <Grid
+                size={{ lg: 2, md: 12, sm: 12, xs: 12 }}
+                key={item._id}
+                onClick={() => navigate(`/product-details/${item._id}`)}
+                sx={{
+                  cursor: 'pointer',
+                  '&:hover': { transform: 'scale(1.03)', transition: '0.3s' }
+                }}
+              >
                 <Card sx={{ minHeight: '400px', minWidth: '300px' }}>
                   <img src={item.image} width='250px' height='350px' alt='PRODUCT' />
                 </Card>
