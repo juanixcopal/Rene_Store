@@ -29,6 +29,15 @@ export default () => {
     }
   )
 
+  router.post(
+    '/add/:idProduct',
+    [ValidationMiddleware, ServiceSelectMiddleware, JwtMiddleware],
+    (request, response) => {
+      const moduleKey = 'add-to-cart'
+      routerCallback({ request, response, moduleKey, controller: productController })
+    }
+  )
+
   router.get(
     '/query',
     [ValidationMiddleware, ServiceSelectMiddleware, JwtMiddleware],

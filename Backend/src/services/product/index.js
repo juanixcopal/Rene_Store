@@ -7,6 +7,7 @@ import makeProductMan5Service from './product-man-5.service.js'
 import makeProductWoman5Service from './product-woman-5.service.js'
 import makeProductForGenderService from './product-for-gender.js'
 import makeProductByGenderCategory from './product-by-gender-category.service.js'
+import makeAddToCartService from './add-to-cart.service.js'
 
 const createProductService = makeCreateProductService({ productData })
 const allProductService = makeAllProductService({ productData })
@@ -15,6 +16,7 @@ const productMan5Service = makeProductMan5Service({ productData })
 const productWoman5Service = makeProductWoman5Service({ productData })
 const productForGenderService = makeProductForGenderService({ productData })
 const productByGenderCategory = makeProductByGenderCategory({ productData })
+const addToCartService = makeAddToCartService({ productData })
 
 const productServices = {
   'create-product': createProductService,
@@ -23,7 +25,8 @@ const productServices = {
   '5-product-man': productMan5Service,
   '5-product-woman': productWoman5Service,
   'product-for-gender': productForGenderService,
-  'product-by-gender-category': productByGenderCategory
+  'product-by-gender-category': productByGenderCategory,
+  'add-to-cart': addToCartService
 }
 
 export default productServices

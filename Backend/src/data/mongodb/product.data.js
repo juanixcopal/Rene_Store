@@ -1,10 +1,11 @@
-export default function makeProductData({ Product, Category }) {
+export default function makeProductData({ Product, Category, Cart }) {
   return Object.freeze({
     findAll,
     findByName,
     createProduct,
     findById,
-    find
+    find,
+    addToCart
   })
 
   async function findAll() {
@@ -60,5 +61,17 @@ export default function makeProductData({ Product, Category }) {
     if (limit) query = query.limit(limit)
 
     return query
+  }
+
+  async function addToCart(id, idProduct, qty = 1) {
+    const existingItem = await Cart.findOne({ user_id: id, product_id: idProduct })
+
+    if (existingItem) {
+      existingItem.quantity += qty
+      return existingItem.save()
+    } else {
+      const newItem = new Cart({ user_id: id, product_id: idProduct, quantity: qty })
+      return newItem.save()
+    }
   }
 }

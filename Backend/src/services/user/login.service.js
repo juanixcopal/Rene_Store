@@ -14,10 +14,10 @@ export default ({ userData }) => {
         }
       }
 
-      const { user_name, user_lastname, password: hash, rol_id } = existing
+      const { user_name, user_lastname, password: hash, rol_id, _id: id } = existing
       const { rol } = rol_id
 
-      const payload = { user_name, user_lastname, rol, email }
+      const payload = { id, user_name, user_lastname, rol, email }
 
       const validatePassword = await validatePasswordHelper(password, hash)
 
