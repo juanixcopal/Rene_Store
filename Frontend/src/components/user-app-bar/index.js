@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import {
   AppBar,
   Toolbar,
@@ -9,7 +9,10 @@ import {
   Button,
   Badge,
   styled,
-  alpha
+  alpha,
+  Card,
+  Divider,
+  Popover
 } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
 import { Link } from 'react-router-dom'
@@ -18,6 +21,8 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined'
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined'
+import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined'
+import { AuthContext } from '../../provider/global-provider'
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -61,6 +66,9 @@ const publicRoutes = ['/login', '/login/']
 
 const UserAppBar = ({ children }) => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname)
+  const [anchorProfile, setAnchorProfile] = useState(null)
+  const { authData } = useContext(AuthContext)
+  const { user_name, user_lastname } = authData
 
   const menuItems = [
     { id: 'home', label: 'Inicio', path: '/home' },
@@ -75,6 +83,18 @@ const UserAppBar = ({ children }) => {
     setCurrentPath(window.location.pathname)
     // eslint-disable-next-line
   }, [window.location.pathname])
+
+  const openProfile = Boolean(anchorProfile)
+  const idProfile = openProfile ? 'popover-profile' : undefined
+
+  const handleProfile = event => {
+    setAnchorProfile(anchorProfile ? null : event.currentTarget)
+  }
+
+  const handleLogout = () => {
+    localStorage.clear()
+    window.location.href = '/login'
+  }
 
   return (
     <>
@@ -127,25 +147,65 @@ const UserAppBar = ({ children }) => {
                   <StyledInputBase placeholder='Buscar' inputProps={{ 'aria-label': 'search' }} />
                 </Search>
 
-                <IconButton component={Link} to='/cart' sx={{ color: '#D8A39D' }}>
+                <IconButton component={Link} to='/cart' sx={{ color: '#7B2D26' }}>
                   <Badge badgeContent={0} color='secondary'>
                     <ShoppingCartOutlinedIcon />
                   </Badge>
                 </IconButton>
 
-                <IconButton component={Link} to='/favoritos' sx={{ color: '#D8A39D' }}>
+                <IconButton component={Link} to='/favoritos' sx={{ color: '#7B2D26' }}>
                   <FavoriteBorderOutlinedIcon />
                 </IconButton>
 
-                <IconButton component={Link} to='/carrito' sx={{ color: '#D8A39D' }}>
+                <IconButton component={Link} to='/carrito' sx={{ color: '#7B2D26' }}>
                   <Badge badgeContent={0} color='secondary'>
                     <NotificationsNoneOutlinedIcon />
                   </Badge>
                 </IconButton>
 
-                <IconButton component={Link} to='/perfil' sx={{ color: '#D8A39D' }}>
-                  <AccountCircleOutlinedIcon />
+                <IconButton onClick={handleProfile}>
+                  <AccountCircleOutlinedIcon sx={{ color: '#7B2D26' }} />
                 </IconButton>
+
+                <Popover
+                  id={idProfile}
+                  open={openProfile}
+                  anchorEl={anchorProfile}
+                  onClose={handleProfile}
+                  anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                  transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+                >
+                  <Card
+                    sx={{
+                      paddingTop: '10px',
+                      paddingBottom: '10px',
+                      minWidth: '180px',
+                      borderRadius: '5px'
+                    }}
+                  >
+                    <Typography sx={{ fontWeight: 600, fontSize: 14, color: '3E2F2F' }}>
+                      {user_name} {user_lastname}
+                    </Typography>
+                    <Divider />
+                    <Box
+                      onClick={handleLogout}
+                      sx={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: 1,
+                        cursor: 'pointer',
+                        '&:hover': {
+                          color: '#7B2D26'
+                        }
+                      }}
+                    >
+                      <ExitToAppOutlinedIcon sx={{ fontSize: 20 }} />
+                      <Typography sx={{ fontSize: 14, fontWeight: 500, color: '3E2F2F' }}>
+                        Cerrar sesión
+                      </Typography>
+                    </Box>
+                  </Card>
+                </Popover>
               </Box>
             </Toolbar>
           </AppBar>
