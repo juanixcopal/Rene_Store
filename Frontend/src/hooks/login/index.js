@@ -33,11 +33,11 @@ export const useFetchInitLogin = () => {
     e.preventDefault()
 
     await postLogin({ login })
-      .then(({ token, result }) => {
+      .then(({ token, result, redirect }) => {
         if (result) {
           localStorage.clear()
           localStorage.setItem('token', token)
-          window.location.href = '/home'
+          window.location.href = redirect
         }
       })
       .catch(({ response }) => {

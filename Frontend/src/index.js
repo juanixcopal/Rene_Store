@@ -4,19 +4,41 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from '@mui/material'
 import theme from './theme/index.js'
-import RoutesRenielStore from './components/app-bar/routes.js'
 import AuthProvider from './provider/global-provider.js'
 import { AlertProvider } from './provider/alert-provider.js'
-import RenielStoreAppBar from './components/app-bar/index.js'
+
+import UserAppBar from './components/user-app-bar/index.js'
+import UserRoutes from './components/user-app-bar/routes.js'
+
+import AdminAppBar from './components/admin-app-bar/index.js'
+import AdminRoutes from './components/admin-app-bar/routes.js'
 
 const App = () => {
+  const isAdminRoute = window.location.pathname.startsWith('/admin')
+
+  // return (
+  //   <BrowserRouter>
+  //     <UserAppBar>
+  //       <AlertProvider>
+  //         <UserRoutes />
+  //       </AlertProvider>
+  //     </UserAppBar>
+  //   </BrowserRouter>
+  // )
+
   return (
     <BrowserRouter>
-      <RenielStoreAppBar>
-        <AlertProvider>
-          <RoutesRenielStore />
-        </AlertProvider>
-      </RenielStoreAppBar>
+      <AlertProvider>
+        {isAdminRoute ? (
+          <AdminAppBar>
+            <AdminRoutes />
+          </AdminAppBar>
+        ) : (
+          <UserAppBar>
+            <UserRoutes />
+          </UserAppBar>
+        )}
+      </AlertProvider>
     </BrowserRouter>
   )
 }

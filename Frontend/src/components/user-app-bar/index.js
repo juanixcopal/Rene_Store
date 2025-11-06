@@ -19,7 +19,6 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined'
 
-// Styled component para la barra de búsqueda
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: '15px',
@@ -60,7 +59,7 @@ const NavButton = styled(Button)(() => ({
 
 const publicRoutes = ['/login', '/login/']
 
-const RenielStoreAppBar = ({ children }) => {
+const UserAppBar = ({ children }) => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname)
 
   const menuItems = [
@@ -92,7 +91,6 @@ const RenielStoreAppBar = ({ children }) => {
             }}
           >
             <Toolbar sx={{ justifyContent: 'space-between', py: 1 }}>
-              {/* Logo */}
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 <Typography
                   component={Link}
@@ -160,4 +158,4 @@ const RenielStoreAppBar = ({ children }) => {
   )
 }
 
-export default RenielStoreAppBar
+export default UserAppBar

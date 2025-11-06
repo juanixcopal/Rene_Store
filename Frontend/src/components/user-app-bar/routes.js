@@ -7,7 +7,7 @@ import OrdersPage from '../../pages/user/orders/index.js'
 import ProductDetailsPage from '../../pages/user/product-details/index.js'
 import CartPage from '../../pages/user/cart/index.js'
 
-const RoutesRenielStore = () => {
+const UserRoutes = () => {
   return (
     <Routes>
       <Route path='/*' element={<Navigate to='/login' />} />
@@ -22,4 +22,4 @@ const RoutesRenielStore = () => {
   )
 }
 
-export default RoutesRenielStore
+export default UserRoutes
