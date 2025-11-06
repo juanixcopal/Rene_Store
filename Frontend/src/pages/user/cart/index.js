@@ -1,8 +1,16 @@
 import { Box, Button, Card, Grid, Typography, IconButton } from '@mui/material'
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined'
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined'
+import { useFetchInitCart } from '../../../hooks/cart/index.js'
 
 const CartPage = () => {
+  const cartHook = useFetchInitCart()
+  const { fetchProductsInCart } = cartHook
+
+  const { productsInCart } = fetchProductsInCart
+
+  console.log(productsInCart)
+
   return (
     <>
       <Box marginBottom={'30px'}>
@@ -14,96 +22,101 @@ const CartPage = () => {
       <Grid container spacing={3}>
         <Grid size={{ lg: 7, md: 12, sm: 12, xs: 12 }}>
           {/* aqui meter el .map de los productos (incluye toda la card) */}
-          <Card sx={{ marginBottom: '20px' }}>
-            <Grid container spacing={2}>
-              <Grid size={{ xs: 3, sm: 2 }}>
-                <Box
-                  component='img'
-                  src='https://res.cloudinary.com/drch5a3kf/image/upload/v1762126553/reniel_store/products/t2ijdxwht8fljilgx86c.jpg'
-                  alt='Producto'
-                  sx={{
-                    width: '100%',
-                    height: 'auto',
-                    borderRadius: '8px',
-                    objectFit: 'cover'
-                  }}
-                />
-              </Grid>
-
-              <Grid size={{ xs: 9, sm: 6 }}>
-                <Typography fontSize={18} fontWeight={500} sx={{ color: '#3E2F2F', mb: 0.5 }}>
-                  Nombre producto
-                </Typography>
-                <Typography fontSize={16} fontWeight={500} sx={{ color: '#3E2F2F', mb: 0.5 }}>
-                  Categoría
-                </Typography>
-                <Typography fontSize={15} fontWeight={500} sx={{ color: '#3E2F2F' }}>
-                  Descripción
-                </Typography>
-              </Grid>
-
-              <Grid size={{ xs: 12, sm: 4 }}>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: { xs: 'flex-start', sm: 'flex-end' },
-                    height: '100%',
-                    justifyContent: 'space-between'
-                  }}
-                >
-                  <Typography fontSize={18} fontWeight={500}>
-                    Precio €
-                  </Typography>
-
-                  <Box
-                    sx={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: 0.5,
-                      border: '1px solid #7B2D26',
-                      borderRadius: '8px',
-                      overflow: 'hidden'
-                    }}
-                  >
-                    <IconButton
-                      size='small'
+          {productsInCart.map(item => {
+            const { product_id } = item
+            return (
+              <Card sx={{ marginBottom: '20px' }} key={item._id}>
+                <Grid container spacing={2}>
+                  <Grid size={{ xs: 3, sm: 2 }}>
+                    <Box
+                      component='img'
+                      src={product_id.image}
+                      alt='Producto'
                       sx={{
-                        borderRadius: 0,
-                        color: '#7B2D26',
-                        '&:hover': { backgroundColor: '#FFF5F4' }
+                        width: '100%',
+                        height: 'auto',
+                        borderRadius: '8px',
+                        objectFit: 'cover'
                       }}
-                    >
-                      <DeleteOutlineOutlinedIcon fontSize='small' />
-                    </IconButton>
+                    />
+                  </Grid>
 
-                    <Typography
-                      sx={{
-                        px: 2,
-                        fontSize: 16,
-                        fontWeight: 500,
-                        minWidth: '40px',
-                        textAlign: 'center'
-                      }}
-                    >
-                      1
+                  <Grid size={{ xs: 9, sm: 6 }}>
+                    <Typography fontSize={18} fontWeight={500} sx={{ color: '#3E2F2F', mb: 0.5 }}>
+                      {product_id.name}
                     </Typography>
+                    <Typography fontSize={16} fontWeight={500} sx={{ color: '#3E2F2F', mb: 0.5 }}>
+                      {product_id.category_id.product}
+                    </Typography>
+                    <Typography fontSize={15} fontWeight={500} sx={{ color: '#3E2F2F' }}>
+                      {product_id.description}
+                    </Typography>
+                  </Grid>
 
-                    <IconButton
-                      size='small'
+                  <Grid size={{ xs: 12, sm: 4 }}>
+                    <Box
                       sx={{
-                        borderRadius: 0,
-                        color: '#7B2D26',
-                        '&:hover': { backgroundColor: '#FFF5F4' }
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: { xs: 'flex-start', sm: 'flex-end' },
+                        height: '100%',
+                        justifyContent: 'space-between'
                       }}
                     >
-                      <AddOutlinedIcon fontSize='small' />
-                    </IconButton>
-                  </Box>
-                </Box>
-              </Grid>
-            </Grid>
-          </Card>
+                      <Typography fontSize={18} fontWeight={500}>
+                        {product_id.price} €
+                      </Typography>
+
+                      <Box
+                        sx={{
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: 0.5,
+                          border: '1px solid #7B2D26',
+                          borderRadius: '8px',
+                          overflow: 'hidden'
+                        }}
+                      >
+                        <IconButton
+                          size='small'
+                          sx={{
+                            borderRadius: 0,
+                            color: '#7B2D26',
+                            '&:hover': { backgroundColor: '#FFF5F4' }
+                          }}
+                        >
+                          <DeleteOutlineOutlinedIcon fontSize='small' />
+                        </IconButton>
+
+                        <Typography
+                          sx={{
+                            px: 2,
+                            fontSize: 16,
+                            fontWeight: 500,
+                            minWidth: '40px',
+                            textAlign: 'center'
+                          }}
+                        >
+                          {item.quantity}
+                        </Typography>
+
+                        <IconButton
+                          size='small'
+                          sx={{
+                            borderRadius: 0,
+                            color: '#7B2D26',
+                            '&:hover': { backgroundColor: '#FFF5F4' }
+                          }}
+                        >
+                          <AddOutlinedIcon fontSize='small' />
+                        </IconButton>
+                      </Box>
+                    </Box>
+                  </Grid>
+                </Grid>
+              </Card>
+            )
+          })}
         </Grid>
 
         <Grid size={{ lg: 5, md: 12, sm: 12, xs: 12 }}>
