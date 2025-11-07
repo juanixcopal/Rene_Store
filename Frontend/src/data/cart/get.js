@@ -7,3 +7,11 @@ export const getProductsInCart = async () => {
     }
   })
 }
+
+export const getCartSummary = async () => {
+  return await instanceAPIRenielStore.get('/cart/query', {
+    headers: {
+      service: 'cart-summary'
+    }
+  })
+}

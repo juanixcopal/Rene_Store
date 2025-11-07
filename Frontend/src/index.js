@@ -16,29 +16,21 @@ import AdminRoutes from './components/admin-app-bar/routes.js'
 const App = () => {
   const isAdminRoute = window.location.pathname.startsWith('/admin')
 
-  // return (
-  //   <BrowserRouter>
-  //     <UserAppBar>
-  //       <AlertProvider>
-  //         <UserRoutes />
-  //       </AlertProvider>
-  //     </UserAppBar>
-  //   </BrowserRouter>
-  // )
-
   return (
     <BrowserRouter>
-      <AlertProvider>
-        {isAdminRoute ? (
-          <AdminAppBar>
+      {isAdminRoute ? (
+        <AdminAppBar>
+          <AlertProvider>
             <AdminRoutes />
-          </AdminAppBar>
-        ) : (
-          <UserAppBar>
+          </AlertProvider>
+        </AdminAppBar>
+      ) : (
+        <UserAppBar>
+          <AlertProvider>
             <UserRoutes />
-          </UserAppBar>
-        )}
-      </AlertProvider>
+          </AlertProvider>
+        </UserAppBar>
+      )}
     </BrowserRouter>
   )
 }
