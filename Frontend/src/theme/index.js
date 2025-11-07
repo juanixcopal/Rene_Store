@@ -230,14 +230,14 @@ const theme = createTheme({
         root: {
           boxShadow: 'none',
           border: '1px solid #E0E0E0',
-          borderRadius: '8px'
+          borderRadius: '4px'
         }
       }
     },
     MuiTableCell: {
       styleOverrides: {
         head: {
-          backgroundColor: '#EEEEEE',
+          backgroundColor: '#F6EFEE',
           color: '#424242',
           fontWeight: 600,
           fontSize: '14px',
