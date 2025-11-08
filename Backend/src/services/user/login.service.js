@@ -31,7 +31,23 @@ export default ({ userData }) => {
 
       const token = await generateTokenHelper(payload)
 
-      return { status: 200, result: true, token }
+      if (rol == 'Administrador') {
+        return {
+          status: 200,
+          result: true,
+          token,
+          redirect: '/admin/dashboard'
+        }
+      }
+
+      if (rol == 'Usuario') {
+        return {
+          status: 200,
+          result: true,
+          token,
+          redirect: '/home'
+        }
+      }
     } catch (error) {
       console.log(error)
       return null

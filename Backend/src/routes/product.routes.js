@@ -15,7 +15,7 @@ const router = Router()
 
 export default () => {
   router.post(
-    '/create',
+    '/manager',
     [
       ValidationMiddleware,
       ServiceSelectMiddleware,
@@ -61,6 +61,16 @@ export default () => {
   router.get(
     '/query/:gender/:category',
     [ValidationMiddleware, ServiceSelectMiddleware, JwtMiddleware],
+    (request, response) => {
+      const { service } = request.headers
+      const moduleKey = service
+      routerCallback({ request, response, moduleKey, controller: productController })
+    }
+  )
+
+  router.get(
+    '/manager',
+    [ValidationMiddleware, ServiceSelectMiddleware, JwtMiddleware, RolMiddleware],
     (request, response) => {
       const { service } = request.headers
       const moduleKey = service

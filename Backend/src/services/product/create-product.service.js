@@ -1,7 +1,7 @@
 export default ({ productData }) => {
   return async ({ request }) => {
     try {
-      const { name, description, price, stock, categoryName, categoryGender } = request.body
+      const { name, description, price, stock, idCategory } = request.body
       const image = request.file?.path
 
       const existing = await productData.findByName(name)
@@ -13,7 +13,7 @@ export default ({ productData }) => {
         }
       }
 
-      const params = { name, description, price, stock, image, categoryName, categoryGender }
+      const params = { name, description, price, stock, image, idCategory }
 
       await productData.createProduct(params)
 

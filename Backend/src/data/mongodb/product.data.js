@@ -17,12 +17,7 @@ export default function makeProductData({ Product, Category, Cart }) {
   }
 
   async function createProduct(params) {
-    const { name, description, price, stock, image, categoryName, categoryGender } = params
-
-    const category = await Category.findOne({ product: categoryName, gender: categoryGender })
-    if (!category) {
-      throw new Error(`La categoría "${categoryName}" con género "${categoryGender}" no existe`)
-    }
+    const { name, description, price, stock, image, idCategory } = params
 
     const product = new Product({
       name,
@@ -30,7 +25,7 @@ export default function makeProductData({ Product, Category, Cart }) {
       price,
       stock,
       image,
-      category_id: category._id
+      category_id: idCategory
     })
 
     return product.save()
@@ -71,6 +66,7 @@ export default function makeProductData({ Product, Category, Cart }) {
       return existingItem.save()
     } else {
       const newItem = new Cart({ user_id: id, product_id: idProduct, quantity: qty })
+
       return newItem.save()
     }
   }

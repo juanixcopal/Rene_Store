@@ -22,5 +22,23 @@ export default () => {
     }
   )
 
+  router.post(
+    '/decrease/:idProduct',
+    [ValidationMiddleware, ServiceSelectMiddleware, JwtMiddleware],
+    (request, response) => {
+      const moduleKey = 'decrease-product'
+      routerCallback({ request, response, moduleKey, controller: cartController })
+    }
+  )
+
+  router.post(
+    '/buy',
+    [ValidationMiddleware, ServiceSelectMiddleware, JwtMiddleware],
+    (request, response) => {
+      const moduleKey = 'buy-cart'
+      routerCallback({ request, response, moduleKey, controller: cartController })
+    }
+  )
+
   return router
 }
