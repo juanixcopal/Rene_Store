@@ -19,7 +19,7 @@ import { Link } from 'react-router-dom'
 
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined'
-import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined'
+import SupportAgentIcon from '@mui/icons-material/SupportAgent'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined'
 import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined'
 import { AuthContext } from '../../provider/global-provider'
@@ -159,7 +159,7 @@ const UserAppBar = ({ children }) => {
 
                 <IconButton component={Link} to='/carrito' sx={{ color: '#7B2D26' }}>
                   <Badge badgeContent={0} color='secondary'>
-                    <NotificationsNoneOutlinedIcon />
+                    <SupportAgentIcon />
                   </Badge>
                 </IconButton>
 

@@ -103,6 +103,15 @@ const theme = createTheme({
             boxShadow: 'none',
             borderRadius: '8px'
           }
+        },
+        text: {
+          color: '#7B2D26',
+          fontSize: '14px',
+          fontStyle: 'normal',
+          fontWeight: 600,
+          fontFamily: 'Playfair Display',
+          boxShadow: 'none',
+          borderRadius: '8px'
         }
       }
     },
