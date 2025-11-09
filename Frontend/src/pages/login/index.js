@@ -5,17 +5,12 @@ import { useFetchInitLogin } from '../../hooks/login/index.js'
 const LoginPage = () => {
   const loginHook = useFetchInitLogin()
 
-  const { isRegister, handleToggle, handleInput, loginAction } = loginHook
+  const { isRegister, handleToggle, handleInput, loginAction, handleInputNewUser, registerAction } =
+    loginHook
 
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        height: '100vh',
-        position: 'relative',
-        overflow: 'hidden'
-      }}
-    >
+    <Box sx={{ display: 'flex', height: '100vh', position: 'relative', overflow: 'hidden' }}>
+      {/* Contenedor principal deslizante */}
       <Box
         sx={{
           display: 'flex',
@@ -25,40 +20,52 @@ const LoginPage = () => {
           transition: 'transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)'
         }}
       >
+        {/* Login Card */}
         <Card
-          style={{ width: '50%', justifyContent: 'center', alignItems: 'center', flexShrink: 0 }}
-          sx={{ borderRadius: '0 65px 65px 0', border: 'none', gap: '30px' }}
+          sx={{
+            width: '50%',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexShrink: 0,
+            borderRadius: '0 65px 65px 0',
+            border: 'none',
+            gap: 3,
+            p: 2
+          }}
         >
           <Typography fontSize={75} fontWeight={500}>
             Bienvenid@
           </Typography>
 
           <Card
-            style={{ justifyContent: 'center', alignItems: 'center' }}
-            sx={{ padding: '40px', gap: '30px' }}
+            sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', p: 5, gap: 3 }}
           >
             <Typography fontSize={45} fontWeight={500} color='#3E2F2F'>
               Iniciar sesión
             </Typography>
+
             <Box
               component='form'
+              onSubmit={loginAction}
               sx={{
                 width: '100%',
                 maxWidth: 260,
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '20px'
+                gap: 2
               }}
             >
               <TextField label='Correo electrónico' name='email' onChange={handleInput} required />
               <TextField
                 label='Contraseña'
                 name='password'
-                onChange={handleInput}
                 type='password'
+                onChange={handleInput}
                 required
               />
-              <Button variant='contained' type='submit' onClick={loginAction}>
+              <Button variant='contained' type='submit'>
                 INICIAR SESIÓN
               </Button>
             </Box>
@@ -80,30 +87,34 @@ const LoginPage = () => {
           </Card>
         </Card>
 
+        {/* Imagen */}
         <Card
-          style={{
+          sx={{
             background: '#F6EFEE',
             width: '50%',
+            display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            flexShrink: 0
+            flexShrink: 0,
+            borderRadius: 0,
+            border: 'none'
           }}
-          sx={{ borderRadius: '0px', border: 'none' }}
         >
           <Box
             sx={{
-              width: '400px',
-              height: '400px',
+              width: 400,
+              height: 400,
               display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              alignItems: 'center'
             }}
           >
-            <img style={{ width: '580px', height: '580px' }} src={logo} alt='Logo' />
+            <img src={logo} alt='Logo' style={{ width: 580, height: 580 }} />
           </Box>
         </Card>
       </Box>
 
+      {/* Registro Card */}
       <Box
         sx={{
           position: 'absolute',
@@ -115,47 +126,72 @@ const LoginPage = () => {
         }}
       >
         <Card
-          style={{
+          sx={{
             width: '100%',
             height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            flexShrink: 0
+            flexShrink: 0,
+            borderRadius: '65px 0 0 65px',
+            border: 'none',
+            gap: 3,
+            p: 2
           }}
-          sx={{ borderRadius: '65px 0 0 65px', border: 'none', gap: '30px' }}
         >
           <Typography fontSize={75} fontWeight={500}>
             Bienvenid@
           </Typography>
 
           <Card
-            style={{ justifyContent: 'center', alignItems: 'center' }}
-            sx={{ padding: '40px', gap: '30px' }}
+            sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', p: 5, gap: 3 }}
           >
             <Typography fontSize={45} fontWeight={500} color='#3E2F2F'>
               Registrarse
             </Typography>
+
             <Box
               component='form'
+              onSubmit={registerAction}
               sx={{
                 width: '100%',
                 maxWidth: 260,
                 display: 'flex',
                 flexDirection: 'column',
-                gap: '20px'
+                gap: 2
               }}
             >
-              <TextField label='Nombres' variant='outlined' fullWidth />
-              <TextField label='Apellidos' variant='outlined' fullWidth />
-              <TextField label='Correo electrónico' variant='outlined' fullWidth />
-              <TextField label='Contraseña' type='password' variant='outlined' fullWidth />
+              <TextField label='Nombres' name='user_name' onChange={handleInputNewUser} required />
               <TextField
-                label='Confirmar contraseña'
-                type='password'
-                variant='outlined'
-                fullWidth
+                label='Apellidos'
+                name='user_lastname'
+                onChange={handleInputNewUser}
+                required
               />
-              <Button variant='contained'>REGISTRARSE</Button>
+              <TextField
+                label='Correo electrónico'
+                name='email'
+                onChange={handleInputNewUser}
+                required
+              />
+              <TextField
+                label='Contraseña'
+                name='password'
+                type='password'
+                onChange={handleInputNewUser}
+                required
+              />
+              <TextField
+                label='Repetir contraseña'
+                name='repeat_password'
+                type='password'
+                onChange={handleInputNewUser}
+                required
+              />
+              <Button variant='contained' type='submit'>
+                REGISTRARSE
+              </Button>
             </Box>
 
             <Typography fontSize={15} color='#7A6E6E'>

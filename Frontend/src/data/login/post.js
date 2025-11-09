@@ -5,3 +5,9 @@ export const postLogin = async ({ login }) => {
     return data
   })
 }
+
+export const postRegisterUser = async ({ dataNewUser }) => {
+  return await instanceAPIRenielStore.post('/user/register', dataNewUser).then(({ data }) => {
+    return data
+  })
+}
