@@ -19,6 +19,9 @@ export const useFechtInitProducts = () => {
       component,
       params
     })
+    setSelectedImage(null)
+    setImagePreview(null)
+    setNewProduct(defaultDataNewProduct)
   }
 
   const onClose = (_, title, component, params) => {
@@ -31,6 +34,7 @@ export const useFechtInitProducts = () => {
     })
     setSelectedImage(null)
     setImagePreview(null)
+    setNewProduct(defaultDataNewProduct)
   }
 
   const handleImageChange = event => {
