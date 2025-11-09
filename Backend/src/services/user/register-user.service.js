@@ -4,7 +4,7 @@ export default ({ userData }) => {
       const { user_name, user_lastname, email, password, repeat_password } = request.body
       const rol = 'Usuario'
 
-      const { encryptPasswordHelper } = helpersObject
+      const { encryptPasswordHelper, generateTokenHelper } = helpersObject
 
       if (password !== repeat_password) {
         return { result: false, message: 'Valide que las contraseñas sean iguales' }
@@ -24,12 +24,25 @@ export default ({ userData }) => {
 
       const params = { user_name, user_lastname, email, hash_pass, rol }
 
-      await userData.createUser(params)
+      const dataUser = await userData.createUser(params)
+
+      const payload = {
+        id: dataUser._id,
+        user_name,
+        user_lastname,
+        rol,
+        email
+      }
+
+      const token = await generateTokenHelper(payload)
 
       return {
         status: 201,
         result: true,
-        message: 'Usuario creado exitosamente'
+        message: 'Usuario creado exitosamente',
+        id: dataUser._id,
+        token,
+        redirect: '/home'
       }
     } catch (error) {
       console.error(error)

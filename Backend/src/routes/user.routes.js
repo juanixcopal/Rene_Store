@@ -28,15 +28,10 @@ export default () => {
     }
   )
 
-  router.post(
-    '/register',
-    [ValidationMiddleware, ServiceSelectMiddleware, JwtMiddleware],
-    (request, response) => {
-      const { service } = request.headers
-      const moduleKey = service
-      routerCallback({ request, response, moduleKey, controller: userController })
-    }
-  )
+  router.post('/register', [ValidationMiddleware], (request, response) => {
+    const moduleKey = 'register-user'
+    routerCallback({ request, response, moduleKey, controller: userController })
+  })
 
   router.get(
     '/query',
