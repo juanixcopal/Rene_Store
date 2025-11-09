@@ -18,7 +18,6 @@ import SearchIcon from '@mui/icons-material/Search'
 import { Link } from 'react-router-dom'
 
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
-import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined'
 import SupportAgentIcon from '@mui/icons-material/SupportAgent'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined'
 import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined'
@@ -151,10 +150,6 @@ const UserAppBar = ({ children }) => {
                   <Badge badgeContent={0} color='secondary'>
                     <ShoppingCartOutlinedIcon />
                   </Badge>
-                </IconButton>
-
-                <IconButton component={Link} to='/favoritos' sx={{ color: '#7B2D26' }}>
-                  <FavoriteBorderOutlinedIcon />
                 </IconButton>
 
                 <IconButton component={Link} to='/carrito' sx={{ color: '#7B2D26' }}>
