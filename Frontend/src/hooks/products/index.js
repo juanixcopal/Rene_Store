@@ -10,6 +10,7 @@ export const useFechtInitProducts = () => {
   const [dataNewProduct, setNewProduct] = useState(defaultDataNewProduct)
   const [selectedImage, setSelectedImage] = useState(null)
   const [imagePreview, setImagePreview] = useState(null)
+  const [dataUpdateProduct, setDataUpdateProduct] = useState([])
 
   const toggle = (_, title, component, params) => {
     setDataModal({
@@ -55,7 +56,17 @@ export const useFechtInitProducts = () => {
     setNewProduct({ ...dataNewProduct, [event.target.name]: event.target.value })
   }
 
-  const actions = useActions({ dataNewProduct, selectedImage, fechtAllProducts, toggle })
+  const handleChangeDataProduct = formData => {
+    setDataUpdateProduct(formData)
+  }
+
+  const actions = useActions({
+    dataNewProduct,
+    selectedImage,
+    fechtAllProducts,
+    toggle,
+    dataUpdateProduct
+  })
 
   return {
     fechtAllProducts,
@@ -67,6 +78,7 @@ export const useFechtInitProducts = () => {
     onClose,
     handleImageChange,
     handleInputNewProduct,
+    handleChangeDataProduct,
     actions
   }
 }

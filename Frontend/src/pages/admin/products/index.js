@@ -86,6 +86,7 @@ const ProductsPage = () => {
                       backgroundColor: '#FFF5F4'
                     }
                   }}
+                  onClick={() => toggle(null, 'Editar producto', 'edit-product', item)}
                   size='small'
                 >
                   <EditSquareIcon sx={{ fontSize: 20, color: '#7B2D26' }} />

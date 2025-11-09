@@ -1,5 +1,6 @@
 import { Modal, Box, Typography } from '@mui/material'
 import NewProduct from './new-product'
+import EditProduct from './edit-product'
 
 const MainModal = ({ useFetchInit }) => {
   const { dataModal } = useFetchInit
@@ -24,6 +25,7 @@ const MainModal = ({ useFetchInit }) => {
             {title}
           </Typography>
           {component === 'new-product' && <NewProduct useFetchInit={useFetchInit} />}
+          {component === 'edit-product' && <EditProduct useFetchInit={useFetchInit} />}
         </Box>
       </Modal>
     </>
