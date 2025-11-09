@@ -182,7 +182,7 @@ db.Users.updateOne(
 Para instrucciones completas de instalación, configuración, decisiones técnicas y desarrollo:
 
 - **[📱 Frontend README](./Frontend/README.md)** - Documentación completa del cliente (13 decisiones técnicas)
-- **[⚙️ Backend README](./Backend/README.md)** - Documentación completa del servidor (12 decisiones técnicas)
+- **[⚙️ Backend README](./Backend/Readme.md)** - Documentación completa del servidor (12 decisiones técnicas)
 
 ## 🎯 Funcionalidades Principales
 
