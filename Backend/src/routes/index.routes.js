@@ -14,7 +14,8 @@ import {
   categoryRoutes,
   productRoutes,
   cartRoutes,
-  dashboardRoutes
+  dashboardRoutes,
+  orderRoutes
 } from './index.js'
 
 export default ({ config }) => {
@@ -36,6 +37,7 @@ export default ({ config }) => {
   apiRoutes.use('/product', productRoutes())
   apiRoutes.use('/cart', cartRoutes())
   apiRoutes.use('/dashboard', dashboardRoutes())
+  apiRoutes.use('/order', orderRoutes())
 
   router.use('/api', apiRoutes)
   router.use(NotFoundMiddleware)

@@ -7,6 +7,7 @@ import makeCategoryData from './category.data.js'
 import makeProductData from './product.data.js'
 import makeCartData from './cart.data.js'
 import makeDashboardData from './dashboard.data.js'
+import makeOrderData from './order.data.js'
 
 const { MONGO_URI } = env // ejemplo: mongodb://localhost:27017/renielstore
 
@@ -33,5 +34,6 @@ const categoryData = makeCategoryData({ Category })
 const productData = makeProductData({ Product, Category, Cart })
 const cartData = makeCartData({ Cart, Order })
 const dashboardData = makeDashboardData({ Order })
+const orderData = makeOrderData({ Order })
 
-export { userData, roleData, categoryData, productData, cartData, dashboardData }
+export { userData, roleData, categoryData, productData, cartData, dashboardData, orderData }
