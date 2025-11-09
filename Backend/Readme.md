@@ -47,7 +47,7 @@ SERVER_HOST=0.0.0.0
 SERVER_TIMEOUT=30s
 
 # Base de Datos MongoDB
-MONGO_URI=mongodb://localhost:27017/renielstore
+MONGO_URI=mongodb+srv://juanixcopal:cCDTLXuw@cluster0.wuryrva.mongodb.net/
 
 # JWT (JSON Web Tokens)
 JWT_SECRET=tu_secreto_super_seguro_aqui
