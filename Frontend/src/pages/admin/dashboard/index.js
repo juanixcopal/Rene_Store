@@ -14,7 +14,6 @@ import {
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
 import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined'
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined'
-import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined'
 import { useFetchDashboard } from '../../../hooks/dashboard/index.js'
 
 const DashboarPage = () => {
@@ -32,7 +31,7 @@ const DashboarPage = () => {
       </Box>
 
       <Grid container spacing={2}>
-        <Grid size={{ lg: 3, md: 12, sm: 12, xs: 12 }}>
+        <Grid size={{ lg: 4, md: 12, sm: 12, xs: 12 }}>
           <Card>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
               <Box
@@ -60,7 +59,7 @@ const DashboarPage = () => {
           </Card>
         </Grid>
 
-        <Grid size={{ lg: 3, md: 12, sm: 12, xs: 12 }}>
+        <Grid size={{ lg: 4, md: 12, sm: 12, xs: 12 }}>
           <Card>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               <Box
@@ -88,7 +87,7 @@ const DashboarPage = () => {
           </Card>
         </Grid>
 
-        <Grid size={{ lg: 3, md: 12, sm: 12, xs: 12 }}>
+        <Grid size={{ lg: 4, md: 12, sm: 12, xs: 12 }}>
           <Card>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
               <Box
@@ -115,38 +114,10 @@ const DashboarPage = () => {
             </Box>
           </Card>
         </Grid>
-
-        <Grid size={{ lg: 3, md: 12, sm: 12, xs: 12 }}>
-          <Card>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-              <Box
-                sx={{
-                  backgroundColor: '#FFF5F4',
-                  borderRadius: '50%',
-                  width: '60px',
-                  height: '60px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-              >
-                <NotificationsNoneOutlinedIcon sx={{ fontSize: 35, color: '#7B2D26' }} />
-              </Box>
-              <Box>
-                <Typography fontSize={16} fontWeight={400} color='#3E2F2F'>
-                  Mensajes sin responder
-                </Typography>
-                <Typography fontSize={28} fontWeight={600} color='#3E2F2F'>
-                  10
-                </Typography>
-              </Box>
-            </Box>
-          </Card>
-        </Grid>
       </Grid>
 
       <Grid container spacing={2} sx={{ marginTop: '20px' }}>
-        <Grid size={{ lg: 9, md: 12, sm: 12, xs: 12 }}>
+        <Grid size={{ lg: 12, md: 12, sm: 12, xs: 12 }}>
           <Card>
             Ultimos 5 pedidos
             <TableContainer component={Paper}>
