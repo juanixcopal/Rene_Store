@@ -4,17 +4,14 @@ import {
   Toolbar,
   Typography,
   IconButton,
-  InputBase,
   Box,
   Button,
   Badge,
   styled,
-  alpha,
   Card,
   Divider,
   Popover
 } from '@mui/material'
-import SearchIcon from '@mui/icons-material/Search'
 import { Link } from 'react-router-dom'
 
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined'
@@ -22,34 +19,6 @@ import SupportAgentIcon from '@mui/icons-material/SupportAgent'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined'
 import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined'
 import { AuthContext } from '../../provider/global-provider'
-
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: '15px',
-  backgroundColor: '#EFEFEF',
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.black, 0.1)
-  }
-}))
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: '#7B2D26'
-}))
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: '#3E2F2F',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`
-  }
-}))
 
 const NavButton = styled(Button)(() => ({
   color: '#3E2F2F',
@@ -139,13 +108,6 @@ const UserAppBar = ({ children }) => {
               </Box>
 
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                <Search>
-                  <SearchIconWrapper>
-                    <SearchIcon />
-                  </SearchIconWrapper>
-                  <StyledInputBase placeholder='Buscar' inputProps={{ 'aria-label': 'search' }} />
-                </Search>
-
                 <IconButton component={Link} to='/cart' sx={{ color: '#7B2D26' }}>
                   <Badge badgeContent={0} color='secondary'>
                     <ShoppingCartOutlinedIcon />
