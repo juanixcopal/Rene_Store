@@ -1,12 +1,22 @@
 export default function makeUserData({ User, Rol }) {
   return Object.freeze({
-    findAll,
+    findAllAdmins,
+    findAllUsers,
     findByEmail,
-    createUser
+    createUser,
+    updateUser
   })
 
-  async function findAll() {
-    return User.find().populate('rol_id', 'rol')
+  async function findAllAdmins() {
+    const rolAdmin = await Rol.findOne({ rol: 'Administrador' })
+    if (!rolAdmin) return []
+    return User.find({ rol_id: rolAdmin._id }).populate('rol_id', 'rol')
+  }
+
+  async function findAllUsers() {
+    const rolUser = await Rol.findOne({ rol: 'Usuario' })
+    if (!rolUser) return []
+    return User.find({ rol_id: rolUser._id }).populate('rol_id', 'rol')
   }
 
   async function findByEmail(email) {
@@ -24,6 +34,20 @@ export default function makeUserData({ User, Rol }) {
       password: hash_pass,
       rol_id: role._id
     })
+
+    return usuario.save()
+  }
+
+  async function updateUser(params) {
+    const { email, user_name, user_lastname, rol } = params
+
+    const usuario = await User.findOne({ email })
+
+    const role = await Rol.findOne({ rol })
+
+    usuario.user_name = user_name
+    usuario.user_lastname = user_lastname
+    usuario.rol_id = role._id
 
     return usuario.save()
   }

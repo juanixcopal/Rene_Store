@@ -28,9 +28,29 @@ export default () => {
     }
   )
 
+  router.post(
+    '/register',
+    [ValidationMiddleware, ServiceSelectMiddleware, JwtMiddleware],
+    (request, response) => {
+      const { service } = request.headers
+      const moduleKey = service
+      routerCallback({ request, response, moduleKey, controller: userController })
+    }
+  )
+
   router.get(
     '/query',
-    [ValidationMiddleware, ServiceSelectMiddleware, JwtMiddleware],
+    [ValidationMiddleware, ServiceSelectMiddleware, JwtMiddleware, RolMiddleware],
+    (request, response) => {
+      const { service } = request.headers
+      const moduleKey = service
+      routerCallback({ request, response, moduleKey, controller: userController })
+    }
+  )
+
+  router.put(
+    '/manager',
+    [ValidationMiddleware, ServiceSelectMiddleware, JwtMiddleware, RolMiddleware],
     (request, response) => {
       const { service } = request.headers
       const moduleKey = service

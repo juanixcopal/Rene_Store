@@ -1,15 +1,15 @@
 export default ({ userData }) => {
   return async ({}) => {
     try {
-      const allUsers = await userData.findAll()
+      const allUserUsers = await userData.findAllUsers()
 
-      return allUsers
+      return allUserUsers
     } catch (error) {
       console.error(error)
       return {
         status: 500,
         result: false,
-        message: 'Ocurrió un error al obtener todos los usuarios'
+        message: 'Ocurrió un error al obtener todos los usuarios tipo usuarios'
       }
     }
   }
