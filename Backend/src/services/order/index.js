@@ -1,11 +1,14 @@
 import { orderData } from '../../data/index.js'
 
-import makeOrdersByUser from './orders-by-user.js'
+import makeOrdersByUserService from './orders-by-user.service.js'
+import makeAllOrdersService from './all-orders.service.js'
 
-const ordersByUser = makeOrdersByUser({ orderData })
+const ordersByUserService = makeOrdersByUserService({ orderData })
+const allOrdersService = makeAllOrdersService({ orderData })
 
 const orderService = {
-  'orders-by-user': ordersByUser
+  'orders-by-user': ordersByUserService,
+  'all-orders': allOrdersService
 }
 
 export default orderService

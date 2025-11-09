@@ -23,5 +23,15 @@ export default () => {
     }
   )
 
+  router.get(
+    '/manager',
+    [ValidationMiddleware, ServiceSelectMiddleware, JwtMiddleware, RolMiddleware],
+    (request, response) => {
+      const { service } = request.headers
+      const moduleKey = service
+      routerCallback({ request, response, moduleKey, controller: orderController })
+    }
+  )
+
   return router
 }
