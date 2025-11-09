@@ -55,12 +55,12 @@ export const useChatSocket = () => {
 
     socket.on('connect', () => {
       setIsConnected(true)
-      console.log('Socket conectado')
+      // console.log('Socket conectado')
     })
 
     socket.on('disconnect', () => {
       setIsConnected(false)
-      console.log('Socket desconectado')
+      // console.log('Socket desconectado')
     })
 
     socket.on('new-message', data => {

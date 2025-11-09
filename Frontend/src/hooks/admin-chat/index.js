@@ -61,7 +61,7 @@ export const useAdminChat = () => {
 
     socket.on('connect', () => {
       setIsConnected(true)
-      console.log('Socket admin conectado')
+      // console.log('Socket admin conectado')
 
       conversations.forEach(conv => {
         socket.emit('join-conversation', conv._id)
@@ -70,7 +70,7 @@ export const useAdminChat = () => {
 
     socket.on('disconnect', () => {
       setIsConnected(false)
-      console.log('Socket admin desconectado')
+      // console.log('Socket admin desconectado')
     })
 
     socket.on('new-message', data => {
