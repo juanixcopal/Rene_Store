@@ -1,6 +1,7 @@
 import { Modal, Box, Typography } from '@mui/material'
 import NewProduct from './new-product'
 import EditProduct from './edit-product'
+import DeleteProduct from './delete-product'
 
 const MainModal = ({ useFetchInit }) => {
   const { dataModal } = useFetchInit
@@ -11,7 +12,7 @@ const MainModal = ({ useFetchInit }) => {
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 600,
+    maxWidth: 600,
     background: '#FFFFFF',
     borderRadius: '8px',
     padding: '24px'
@@ -26,6 +27,7 @@ const MainModal = ({ useFetchInit }) => {
           </Typography>
           {component === 'new-product' && <NewProduct useFetchInit={useFetchInit} />}
           {component === 'edit-product' && <EditProduct useFetchInit={useFetchInit} />}
+          {component === 'delete-product' && <DeleteProduct useFetchInit={useFetchInit} />}
         </Box>
       </Modal>
     </>

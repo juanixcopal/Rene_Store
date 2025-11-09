@@ -65,7 +65,8 @@ export const useFechtInitProducts = () => {
     selectedImage,
     fechtAllProducts,
     toggle,
-    dataUpdateProduct
+    dataUpdateProduct,
+    dataModal
   })
 
   return {

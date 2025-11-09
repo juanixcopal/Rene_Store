@@ -2,6 +2,7 @@ import { Box, Grid, Card, Typography, styled, InputBase, Button, IconButton } fr
 import { useFechtInitProducts } from '../../../hooks/products'
 import SearchIcon from '@mui/icons-material/Search'
 import EditSquareIcon from '@mui/icons-material/EditSquare'
+import DeleteIcon from '@mui/icons-material/Delete'
 import MainModal from './modal/index.js'
 
 const ProductsPage = () => {
@@ -90,6 +91,25 @@ const ProductsPage = () => {
                   size='small'
                 >
                   <EditSquareIcon sx={{ fontSize: 20, color: '#7B2D26' }} />
+                </IconButton>
+
+                <IconButton
+                  sx={{
+                    position: 'absolute',
+                    bottom: 20,
+                    right: 10,
+                    backgroundColor: '#FFFFFF',
+                    boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.15)',
+                    zIndex: 1,
+                    '&:hover': {
+                      backgroundColor: '#FFEBEE'
+                    }
+                  }}
+                  onClick={() => toggle(null, 'Eliminar producto', 'delete-product', item)}
+                  // onClick={() => deleteProduct(item._id)}
+                  size='small'
+                >
+                  <DeleteIcon sx={{ fontSize: 20, color: '#7B2D26' }} />
                 </IconButton>
 
                 <Box
