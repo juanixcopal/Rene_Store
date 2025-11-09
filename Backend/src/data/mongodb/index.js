@@ -8,6 +8,7 @@ import makeProductData from './product.data.js'
 import makeCartData from './cart.data.js'
 import makeDashboardData from './dashboard.data.js'
 import makeOrderData from './order.data.js'
+import makeChatData from './chat.data.js'
 
 const { MONGO_URI } = env // ejemplo: mongodb://localhost:27017/renielstore
 
@@ -26,6 +27,8 @@ import Category from '../../../models/category.model.js'
 import Product from '../../../models/product.model.js'
 import Cart from '../../../models/cart.model.js'
 import Order from '../../../models/order.model.js'
+import Conversation from '../../../models/chat-conversation.model.js'
+import Message from '../../../models/chat-message.model.js'
 
 // 🔹 Crear instancias de los "data access" (como hacías con Sequelize)
 const userData = makeUserData({ User, Rol })
@@ -35,5 +38,15 @@ const productData = makeProductData({ Product, Category, Cart })
 const cartData = makeCartData({ Cart, Order })
 const dashboardData = makeDashboardData({ Order })
 const orderData = makeOrderData({ Order })
+const chatData = makeChatData({ Conversation, Message })
 
-export { userData, roleData, categoryData, productData, cartData, dashboardData, orderData }
+export {
+  userData,
+  roleData,
+  categoryData,
+  productData,
+  cartData,
+  dashboardData,
+  orderData,
+  chatData
+}

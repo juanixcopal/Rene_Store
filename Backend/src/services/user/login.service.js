@@ -36,6 +36,7 @@ export default ({ userData }) => {
           status: 200,
           result: true,
           token,
+          id: id,
           redirect: '/admin/dashboard'
         }
       }
@@ -45,6 +46,7 @@ export default ({ userData }) => {
           status: 200,
           result: true,
           token,
+          id: id,
           redirect: '/home'
         }
       }

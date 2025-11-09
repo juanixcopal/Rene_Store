@@ -5,7 +5,17 @@ import {
   productData,
   cartData,
   dashboardData,
-  orderData
+  orderData,
+  chatData
 } from './mongodb/index.js'
 
-export { roleData, userData, categoryData, productData, cartData, dashboardData, orderData }
+export {
+  roleData,
+  userData,
+  categoryData,
+  productData,
+  cartData,
+  dashboardData,
+  orderData,
+  chatData
+}

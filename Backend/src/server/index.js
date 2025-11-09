@@ -2,6 +2,7 @@ import express from 'express'
 import config from '../config/env.js'
 import router from '../routes/index.routes.js'
 import http from 'http'
+import { initializeSocket } from '../config/socket.config.js'
 
 process.setMaxListeners(500)
 const { SERVER_PORT, SERVER_HOST } = config
@@ -10,6 +11,8 @@ const start = () => {
   const _express = express().use(router({ config }))
 
   const server = http.createServer(_express)
+
+  initializeSocket(server)
 
   return new Promise(resolve => {
     server.listen(SERVER_PORT, SERVER_HOST, () => {

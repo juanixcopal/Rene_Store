@@ -9,12 +9,6 @@ const env = {
 
   MONGO_URI: 'mongodb://localhost:27017/renielstore',
 
-  // MYSQL_PORT: process.env.MYSQL_PORT || 3306,
-  // MYSQL_HOST: process.env.MYSQL_HOST || '0.0.0.0',
-  // MYSQL_USER: process.env.MYSQL_USER || 'root',
-  // MYSQL_PASS: process.env.MYSQL_PASS || 'root',
-  // MYSQL_DATABASE: process.env.MYSQL_DATABASE || 'invitapro',
-
   JWT_SECRET: process.env.JWT_SECRET || '05xkc6VM',
   JWT_EXPIRESIN: process.env.JWT_EXPIRESIN || '6h',
 

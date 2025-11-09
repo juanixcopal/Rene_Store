@@ -5,6 +5,7 @@ import productRoutes from './product.routes.js'
 import cartRoutes from './cart.routes.js'
 import dashboardRoutes from './dashboard.routes.js'
 import orderRoutes from './order.routes.js'
+import chatRoutes from './chat.routes.js'
 
 export {
   userRoutes,
@@ -13,5 +14,6 @@ export {
   productRoutes,
   cartRoutes,
   dashboardRoutes,
-  orderRoutes
+  orderRoutes,
+  chatRoutes
 }
