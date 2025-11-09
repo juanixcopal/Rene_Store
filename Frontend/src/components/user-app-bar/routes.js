@@ -6,6 +6,7 @@ import WomanPage from '../../pages/user/woman/index.js'
 import OrdersPage from '../../pages/user/orders/index.js'
 import ProductDetailsPage from '../../pages/user/product-details/index.js'
 import CartPage from '../../pages/user/cart/index.js'
+import UserChatPage from '../../pages/user/chat/index.js'
 
 const UserRoutes = () => {
   return (
@@ -18,6 +19,7 @@ const UserRoutes = () => {
       <Route path='/orders' Component={OrdersPage} />
       <Route path='/product-details/:id' Component={ProductDetailsPage} />
       <Route path='/cart' Component={CartPage} />
+      <Route path='/chat' Component={UserChatPage} />
     </Routes>
   )
 }

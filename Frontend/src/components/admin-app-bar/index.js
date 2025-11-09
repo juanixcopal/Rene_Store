@@ -117,7 +117,7 @@ const AdminAppBar = ({ children }) => {
       icon: <ShoppingBagOutlinedIcon />
     },
     { id: 'orders', label: 'Pedidos', path: '/admin/orders', icon: <ReceiptLongOutlinedIcon /> },
-    { id: 'chat', label: 'Chat', path: '/admin/chat', icon: <ChatOutlinedIcon /> },
+    { id: 'chat', label: 'Chat', path: '/admin/chats', icon: <ChatOutlinedIcon /> },
     { id: 'users', label: 'Usuarios', path: '/admin/users', icon: <GroupOutlinedIcon /> }
   ]
 

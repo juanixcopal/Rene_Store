@@ -114,7 +114,7 @@ const UserAppBar = ({ children }) => {
                   </Badge>
                 </IconButton>
 
-                <IconButton component={Link} to='/carrito' sx={{ color: '#7B2D26' }}>
+                <IconButton component={Link} to='/chat' sx={{ color: '#7B2D26' }}>
                   <Badge badgeContent={0} color='secondary'>
                     <SupportAgentIcon />
                   </Badge>

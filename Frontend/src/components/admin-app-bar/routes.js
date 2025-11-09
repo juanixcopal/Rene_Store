@@ -3,6 +3,7 @@ import DashboarPage from '../../pages/admin/dashboard'
 import ProductsPage from '../../pages/admin/products'
 import AdminOrdersPage from '../../pages/admin/orders'
 import UsersPage from '../../pages/admin/users'
+import AdminChatsPage from '../../pages/admin/chat'
 
 const AdminRoutes = () => {
   return (
@@ -12,6 +13,7 @@ const AdminRoutes = () => {
       <Route path='/admin/products' element={<ProductsPage />} />
       <Route path='/admin/orders' element={<AdminOrdersPage />} />
       <Route path='/admin/users' element={<UsersPage />} />
+      <Route path='/admin/chats' element={<AdminChatsPage />} />
     </Routes>
   )
 }
