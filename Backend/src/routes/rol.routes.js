@@ -24,7 +24,7 @@ export default () => {
 
   router.get(
     '/query',
-    [ValidationMiddleware, ServiceSelectMiddleware, JwtMiddleware],
+    [ValidationMiddleware, ServiceSelectMiddleware, JwtMiddleware, RolMiddleware],
     (request, response) => {
       const { service } = request.headers
       const moduleKey = service
