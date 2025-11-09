@@ -26,7 +26,16 @@ export default ({ config }) => {
 
   apiRoutes
     .use(json())
-    .use(cors())
+    .use(
+      cors({
+        origin: [
+          'https://rene-store-1.onrender.com', // 🔹 URL frontend en Render
+          'http://localhost:3000' // 🔹 para pruebas locales
+        ],
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
+        credentials: true
+      })
+    )
     .use(helmet())
     .use(compression())
     .use(urlencoded({ extended: true }))
