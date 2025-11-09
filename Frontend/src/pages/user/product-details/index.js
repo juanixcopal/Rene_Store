@@ -2,7 +2,6 @@ import { useEffect } from 'react'
 import { useFetchInitProductDetails } from '../../../hooks/product-details'
 import { useParams } from 'react-router-dom'
 import { Typography, Card, Button, Grid, Box } from '@mui/material'
-import FavoriteIcon from '@mui/icons-material/Favorite'
 
 const ProductDetailsPage = () => {
   const { id } = useParams()
@@ -50,9 +49,6 @@ const ProductDetailsPage = () => {
                 <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, marginTop: 20 }}>
                   <Button variant='contained' onClick={addToCart}>
                     Añadir a la cesta
-                  </Button>
-                  <Button variant='outlined' endIcon={<FavoriteIcon />}>
-                    Favorito
                   </Button>
                 </Box>
               </Box>

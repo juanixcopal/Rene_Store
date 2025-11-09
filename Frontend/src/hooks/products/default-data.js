@@ -10,7 +10,6 @@ export const defaultDataNewProduct = {
   description: '',
   price: '',
   stock: '',
-  categoryName: '',
-  categoryGender: '',
+  idCategory: '',
   image: ''
 }

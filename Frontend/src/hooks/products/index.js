@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useFechtAllProducts, useFetchAllCategories } from './fetch-data.js'
 import { defaultDataModal, defaultDataNewProduct } from './default-data.js'
+import { useActions } from './actions.js'
 
 export const useFechtInitProducts = () => {
   const fechtAllProducts = useFechtAllProducts()
@@ -48,26 +49,9 @@ export const useFechtInitProducts = () => {
 
   const handleInputNewProduct = event => {
     setNewProduct({ ...dataNewProduct, [event.target.name]: event.target.value })
-    console.log(dataNewProduct)
-
-    // const { name, value } = event.target;
-    // const selected =
-    //   name === 'id_type_event'
-    //     ? fetchTypeEvent.typeEvent.find(item => item.id_type_event === value)
-    //     : fetchHall.hall.find(item => item.id_hall === value);
-
-    // if (!selected) return;
-
-    // const newData =
-    //   name === 'id_type_event'
-    //     ? { id_type_event: selected.id_type_event, type_event: selected.type_event }
-    //     : { id_hall: selected.id_hall, hall_name: selected.hall_name };
-
-    // setDataNewEvent(prev => ({
-    //   ...prev,
-    //   ...newData
-    // }));
   }
+
+  const actions = useActions({ dataNewProduct, selectedImage, fechtAllProducts, toggle })
 
   return {
     fechtAllProducts,
@@ -78,6 +62,7 @@ export const useFechtInitProducts = () => {
     toggle,
     onClose,
     handleImageChange,
-    handleInputNewProduct
+    handleInputNewProduct,
+    actions
   }
 }
