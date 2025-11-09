@@ -609,7 +609,7 @@ export default (error, request, response, next) => {
 ```javascript
 // Cualquier error lanzado en async será capturado
 throw new Error('Custom error message')
-// El middleware de errores lo formateará automáticamente
+// El middleware de errores lo formateará automáticamente.
 ```
 
 ### 11. **Sistema de Chat en Tiempo Real con Socket.io**
