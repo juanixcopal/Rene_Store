@@ -3,7 +3,6 @@ import mongoose from 'mongoose'
 const ConversationSchema = new mongoose.Schema(
   {
     participants: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Users', required: true }],
-    // opcional: título, tipo (soporte), meta, etc.
     lastMessage: {
       text: String,
       sender: { type: mongoose.Schema.Types.ObjectId, ref: 'Users' },
@@ -13,6 +12,6 @@ const ConversationSchema = new mongoose.Schema(
   { timestamps: true }
 )
 
-ConversationSchema.index({ participants: 1 }) // para consultas por participante
+ConversationSchema.index({ participants: 1 })
 
 export default mongoose.model('Conversation', ConversationSchema)
