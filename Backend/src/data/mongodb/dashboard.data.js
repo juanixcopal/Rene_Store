@@ -38,7 +38,6 @@ export default function makeDashboardData({ Order }) {
         order.user_id?.user_lastname || ''
       }`.trim(),
       totalProducts: order.items.reduce((sum, item) => sum + item.quantity, 0),
-      // date: order.createdAt,
       date: new Date(order.createdAt).toLocaleDateString('es-ES', {
         year: 'numeric',
         month: '2-digit',
