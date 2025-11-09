@@ -5,15 +5,16 @@ export default function makeProductData({ Product, Category, Cart }) {
     createProduct,
     findById,
     find,
-    addToCart
+    addToCart,
+    softDelete
   })
 
   async function findAll() {
-    return Product.find().populate('category_id', 'product gender')
+    return Product.find({ isDeleted: false }).populate('category_id', 'product gender')
   }
 
   async function findByName(name) {
-    return Product.findOne({ name }).populate('category_id', 'product gender')
+    return Product.findOne({ name, isDeleted: false }).populate('category_id', 'product gender')
   }
 
   async function createProduct(params) {
@@ -32,11 +33,11 @@ export default function makeProductData({ Product, Category, Cart }) {
   }
 
   async function findById(id) {
-    return Product.findById(id).populate('category_id', 'product gender')
+    return Product.findOne({ _id: id, isDeleted: false }).populate('category_id', 'product gender')
   }
 
   async function find(filter = {}, limit = null) {
-    let productQuery = {}
+    let productQuery = { isDeleted: false }
 
     if (filter.gender) {
       const categories = await Category.find({ gender: filter.gender })
@@ -66,8 +67,16 @@ export default function makeProductData({ Product, Category, Cart }) {
       return existingItem.save()
     } else {
       const newItem = new Cart({ user_id: id, product_id: idProduct, quantity: qty })
-
       return newItem.save()
     }
+  }
+
+  async function softDelete(id) {
+    const product = await Product.findById(id)
+    if (!product) throw new Error('Producto no encontrado')
+
+    product.isDeleted = true
+    product.deletedAt = new Date()
+    return product.save()
   }
 }

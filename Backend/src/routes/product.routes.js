@@ -78,5 +78,15 @@ export default () => {
     }
   )
 
+  router.delete(
+    '/manager/:idProduct',
+    [ValidationMiddleware, ServiceSelectMiddleware, JwtMiddleware, RolMiddleware],
+    (request, response) => {
+      const { service } = request.headers
+      const moduleKey = service
+      routerCallback({ request, response, moduleKey, controller: productController })
+    }
+  )
+
   return router
 }
