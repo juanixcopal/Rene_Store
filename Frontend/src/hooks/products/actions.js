@@ -1,6 +1,6 @@
 import { useAlert } from '../../provider/alert-provider'
 import { postCreateProduct } from '../../data/products/post.js'
-import { postEditProduct } from '../../data/products/put.js'
+import { putEditProduct } from '../../data/products/put.js'
 import { deleteProductById } from '../../data/products/delete.js'
 
 export const useActions = ({
@@ -20,7 +20,7 @@ export const useActions = ({
 
   const editProduct = async e => {
     e.preventDefault()
-    postEditProduct({ dataUpdateProduct, showAlert, fechtAllProducts, toggle })
+    putEditProduct({ dataUpdateProduct, showAlert, fechtAllProducts, toggle })
   }
 
   const deleteProduct = async e => {

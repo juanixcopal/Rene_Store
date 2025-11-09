@@ -1,6 +1,6 @@
 import { instanceAPIRenielStore } from '../../config/data-source'
 
-export const postEditProduct = async ({
+export const putEditProduct = async ({
   dataUpdateProduct,
   showAlert,
   fechtAllProducts,
