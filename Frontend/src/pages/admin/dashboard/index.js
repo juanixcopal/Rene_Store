@@ -146,7 +146,7 @@ const DashboarPage = () => {
       </Grid>
 
       <Grid container spacing={2} sx={{ marginTop: '20px' }}>
-        <Grid size={{ lg: 8, md: 12, sm: 12, xs: 12 }}>
+        <Grid size={{ lg: 9, md: 12, sm: 12, xs: 12 }}>
           <Card>
             Ultimos 5 pedidos
             <TableContainer component={Paper}>
@@ -176,10 +176,6 @@ const DashboarPage = () => {
               </Table>
             </TableContainer>
           </Card>
-        </Grid>
-
-        <Grid size={{ lg: 4, md: 12, sm: 12, xs: 12 }}>
-          <Card>Productos con bajo stock</Card>
         </Grid>
       </Grid>
     </>
