@@ -1,28 +1,28 @@
 import { Box, Typography, Grid, Card } from '@mui/material'
-import { useFetchInitUserOrders } from '../../../hooks/user-orders'
+import { useFetchInitAdminOrders } from '../../../hooks/admin-orders'
 
-const OrdersPage = () => {
-  const mainHook = useFetchInitUserOrders()
-  const { fetchOrdersByUser } = mainHook
-  const { userOrders } = fetchOrdersByUser
+const AdminOrdersPage = () => {
+  const mainHook = useFetchInitAdminOrders()
+  const { fetchAllOrders } = mainHook
+  const { allOrders } = fetchAllOrders
 
   return (
     <>
-      <Box marginBottom={'30px'}>
-        <Typography fontSize={40} fontWeight={400}>
+      <Box marginBottom={'20px'}>
+        <Typography fontSize={22} fontWeight={500} color='#3E2F2F'>
           Pedidos
         </Typography>
       </Box>
 
-      {userOrders.length === 0 ? (
+      {!allOrders || allOrders.length === 0 ? (
         <Box sx={{ textAlign: 'center' }}>
           <Typography fontSize={20} fontWeight={500} sx={{ color: '#8B7B7B' }}>
-            No tienes pedidos realizados
+            No hay pedidos registrados
           </Typography>
         </Box>
       ) : (
         <Grid container spacing={4}>
-          {userOrders.map(order => (
+          {allOrders.map(order => (
             <Grid size={{ lg: 12, md: 12, sm: 12, xs: 12 }} key={order._id}>
               <Card sx={{ p: 3 }}>
                 <Box
@@ -40,9 +40,13 @@ const OrdersPage = () => {
                       Pedido #{order._id}
                     </Typography>
                     <Typography fontSize={16} fontWeight={500} sx={{ color: '#3E2F2F' }}>
-                      {order.createdAt}
+                      Fecha: {order.createdAt}
+                    </Typography>
+                    <Typography fontSize={16} fontWeight={500} sx={{ color: '#3E2F2F', mt: 0.5 }}>
+                      Cliente: {order.user_name} {order.user_lastname}
                     </Typography>
                   </Box>
+
                   <Box sx={{ textAlign: 'right' }}>
                     <Typography fontSize={14} fontWeight={500} sx={{ color: '#8B7B7B', mb: 0.5 }}>
                       Total del pedido
@@ -154,4 +158,4 @@ const OrdersPage = () => {
   )
 }
 
-export default OrdersPage
+export default AdminOrdersPage
