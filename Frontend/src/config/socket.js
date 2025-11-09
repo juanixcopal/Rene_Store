@@ -7,7 +7,7 @@ export const initializeSocket = token => {
     return socket
   }
 
-  socket = io(process.env.REACT_APP_API_BASE || 'http://localhost:3050', {
+  socket = io(process.env.REACT_APP_API_BASE, {
     auth: { token }
   })
 
