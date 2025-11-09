@@ -31,7 +31,7 @@ const CartPage = () => {
         {!productsInCart || productsInCart.length === 0 ? (
           <>
             <Box sx={{ textAlign: 'center', width: '100%' }}>
-              <Typography fontSize={20} fontWeight={500} sx={{ color: '#3E2F2F' }}>
+              <Typography fontSize={20} fontWeight={500} sx={{ color: '#8B7B7B' }}>
                 Tu carrito está vacío
               </Typography>
             </Box>

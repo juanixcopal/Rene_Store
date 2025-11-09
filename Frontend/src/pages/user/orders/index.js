@@ -6,17 +6,6 @@ const OrdersPage = () => {
   const { fetchOrdersByUser } = mainHook
   const { userOrders } = fetchOrdersByUser
 
-  // const formatDate = dateString => {
-  //   const date = new Date(dateString)
-  //   return date.toLocaleDateString('es-ES', {
-  //     day: '2-digit',
-  //     month: '2-digit',
-  //     year: 'numeric',
-  //     hour: '2-digit',
-  //     minute: '2-digit'
-  //   })
-  // }
-
   return (
     <>
       <Box marginBottom={'30px'}>
@@ -26,7 +15,7 @@ const OrdersPage = () => {
       </Box>
 
       {userOrders.length === 0 ? (
-        <Box sx={{ textAlign: 'center', py: 8 }}>
+        <Box sx={{ textAlign: 'center' }}>
           <Typography fontSize={20} fontWeight={500} sx={{ color: '#8B7B7B' }}>
             No tienes pedidos realizados
           </Typography>
