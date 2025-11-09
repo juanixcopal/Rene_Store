@@ -88,5 +88,20 @@ export default () => {
     }
   )
 
+  router.put(
+    '/manager/:idProduct',
+    [
+      ValidationMiddleware,
+      ServiceSelectMiddleware,
+      JwtMiddleware,
+      RolMiddleware,
+      uploadMiddleware.single('image')
+    ],
+    (request, response) => {
+      const moduleKey = 'edit-product'
+      routerCallback({ request, response, moduleKey, controller: productController })
+    }
+  )
+
   return router
 }
