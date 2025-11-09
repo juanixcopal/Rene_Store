@@ -25,7 +25,7 @@ import ChatOutlinedIcon from '@mui/icons-material/ChatOutlined'
 import GroupOutlinedIcon from '@mui/icons-material/GroupOutlined'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined'
 import ExitToAppOutlinedIcon from '@mui/icons-material/ExitToAppOutlined'
-import { AuthContext } from '../../provider/global-provider'
+import { AuthContext } from '../../provider/global-provider.js'
 
 const openedMixin = theme => ({
   width: 260,
