@@ -548,3 +548,15 @@ axios.post('/products', formData, {
 - Dependency injection en backend
 - Context API bien estructurado
 - Documentación completa del código
+
+
+
+[Plataforma en producción](https://rene-store-1.onrender.com/login)
+
+Usuario normal:
+gmail: user@gmail.com
+password: 123456
+
+Usuario administrador
+gmail: admin@gmail.com
+password: 123456
