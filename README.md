@@ -14,7 +14,7 @@ Reniel Store es una aplicación web full-stack para la gestión integral de una 
 
 ```
 Rene_Store/
-├── Frontend/          # Aplicación React (Cliente SPA)
+├── Frontend/          # Aplicación React (Cliente)
 │   ├── src/
 │   │   ├── components/      # Componentes reutilizables
 │   │   ├── config/          # Configuraciones
