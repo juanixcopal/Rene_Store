@@ -95,7 +95,7 @@ const UserChatPage = () => {
           <Avatar sx={{ bgcolor: '#7B2D26' }}>RS</Avatar>
           <Box>
             <Typography fontSize={18} fontWeight={600} color='#3E2F2F'>
-              Soporte - Reniel Store
+              Soporte - Rene Store
             </Typography>
             <Typography fontSize={14} color='#8B7B7B'>
               {isConnected ? '● En línea' : '○ Desconectado'}

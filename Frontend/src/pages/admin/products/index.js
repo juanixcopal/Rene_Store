@@ -1,4 +1,4 @@
-import { Box, Grid, Card, Typography, Button, IconButton } from '@mui/material'
+import { Box, Grid, Card, Typography, Button, IconButton, Tooltip } from '@mui/material'
 import { useFechtInitProducts } from '../../../hooks/products'
 import EditSquareIcon from '@mui/icons-material/EditSquare'
 import DeleteIcon from '@mui/icons-material/Delete'
@@ -33,45 +33,46 @@ const ProductsPage = () => {
         {allProducts.map(item => {
           return (
             <Grid size={{ lg: 3, md: 6, sm: 6, xs: 12 }} key={item._id}>
-              <Card
-                sx={{ position: 'relative', overflow: 'visible', width: '300px', height: '400px' }}
-              >
-                <IconButton
-                  sx={{
-                    position: 'absolute',
-                    top: 10,
-                    right: 10,
-                    backgroundColor: '#FFFFFF',
-                    boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.15)',
-                    zIndex: 1,
-                    '&:hover': {
-                      backgroundColor: '#FFF5F4'
-                    }
-                  }}
-                  onClick={() => toggle(null, 'Editar producto', 'edit-product', item)}
-                  size='small'
-                >
-                  <EditSquareIcon sx={{ fontSize: 20, color: '#7B2D26' }} />
-                </IconButton>
+              <Card sx={{ position: 'relative', overflow: 'visible' }}>
+                <Tooltip title='Editar producto' arrow>
+                  <IconButton
+                    sx={{
+                      position: 'absolute',
+                      top: 10,
+                      right: 10,
+                      backgroundColor: '#FFFFFF',
+                      boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.15)',
+                      zIndex: 1,
+                      '&:hover': {
+                        backgroundColor: '#FFF5F4'
+                      }
+                    }}
+                    onClick={() => toggle(null, 'Editar producto', 'edit-product', item)}
+                    size='small'
+                  >
+                    <EditSquareIcon sx={{ fontSize: 20, color: '#7B2D26' }} />
+                  </IconButton>
+                </Tooltip>
 
-                <IconButton
-                  sx={{
-                    position: 'absolute',
-                    bottom: 20,
-                    right: 10,
-                    backgroundColor: '#FFFFFF',
-                    boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.15)',
-                    zIndex: 1,
-                    '&:hover': {
-                      backgroundColor: '#FFEBEE'
-                    }
-                  }}
-                  onClick={() => toggle(null, 'Eliminar producto', 'delete-product', item)}
-                  // onClick={() => deleteProduct(item._id)}
-                  size='small'
-                >
-                  <DeleteIcon sx={{ fontSize: 20, color: '#7B2D26' }} />
-                </IconButton>
+                <Tooltip title='Eliminar producto' arrow>
+                  <IconButton
+                    sx={{
+                      position: 'absolute',
+                      bottom: 20,
+                      right: 10,
+                      backgroundColor: '#FFFFFF',
+                      boxShadow: '0px 2px 8px rgba(0, 0, 0, 0.15)',
+                      zIndex: 1,
+                      '&:hover': {
+                        backgroundColor: '#FFEBEE'
+                      }
+                    }}
+                    onClick={() => toggle(null, 'Eliminar producto', 'delete-product', item)}
+                    size='small'
+                  >
+                    <DeleteIcon sx={{ fontSize: 20, color: '#7B2D26' }} />
+                  </IconButton>
+                </Tooltip>
 
                 <Box
                   sx={{

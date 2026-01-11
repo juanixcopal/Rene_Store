@@ -1,4 +1,4 @@
-import { Box, Button, Card, Grid, Typography } from '@mui/material'
+import { Box, Button, Card, Typography, Grid } from '@mui/material'
 import ArrowRightAltOutlinedIcon from '@mui/icons-material/ArrowRightAltOutlined'
 import { useFetchInitHome } from '../../../hooks/home/index'
 import { useNavigate } from 'react-router-dom'
@@ -29,11 +29,11 @@ const HomePage = () => {
           Para Mujer
         </Typography>
 
-        <Grid container spacing={'100px'} sx={{ width: '100%', justifyContent: 'center' }}>
+        <Grid container spacing={2}>
           {fiveWomanProducts.map(item => {
             return (
               <Grid
-                size={{ lg: 2, md: 12, sm: 12, xs: 12 }}
+                size={{ lg: 2.4, md: 12, sm: 12, xs: 12 }}
                 key={item._id}
                 onClick={() => navigate(`/product-details/${item._id}`)}
                 sx={{
@@ -41,9 +41,30 @@ const HomePage = () => {
                   '&:hover': { transform: 'scale(1.03)', transition: '0.3s' }
                 }}
               >
-                <Card sx={{ minHeight: '400px', minWidth: '300px' }}>
-                  <img src={item.image} width='250px' height='350px' alt='PRODUCT' />
+                <Card>
+                  <Box
+                    sx={{
+                      width: '100%',
+                      height: '350px',
+                      overflow: 'hidden',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      backgroundColor: '#F9F9F9'
+                    }}
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover'
+                      }}
+                    />
+                  </Box>
                 </Card>
+
                 <Typography fontSize={18} fontWeight={500} sx={{ color: '#3E2F2F' }}>
                   {item.name}
                 </Typography>
@@ -80,11 +101,11 @@ const HomePage = () => {
           Para Hombre
         </Typography>
 
-        <Grid container spacing={'100px'} sx={{ width: '100%', justifyContent: 'center' }}>
+        <Grid container spacing={2}>
           {fiveManProducts.map(item => {
             return (
               <Grid
-                size={{ lg: 2, md: 12, sm: 12, xs: 12 }}
+                size={{ lg: 2.4, md: 12, sm: 12, xs: 12 }}
                 key={item._id}
                 onClick={() => navigate(`/product-details/${item._id}`)}
                 sx={{
@@ -92,8 +113,28 @@ const HomePage = () => {
                   '&:hover': { transform: 'scale(1.03)', transition: '0.3s' }
                 }}
               >
-                <Card sx={{ minHeight: '400px', minWidth: '300px' }}>
-                  <img src={item.image} width='250px' height='350px' alt='PRODUCT' />
+                <Card>
+                  <Box
+                    sx={{
+                      width: '100%',
+                      height: '350px',
+                      overflow: 'hidden',
+                      display: 'flex',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      backgroundColor: '#F9F9F9'
+                    }}
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover'
+                      }}
+                    />
+                  </Box>
                 </Card>
                 <Typography fontSize={18} fontWeight={500} sx={{ color: '#3E2F2F' }}>
                   {item.name}

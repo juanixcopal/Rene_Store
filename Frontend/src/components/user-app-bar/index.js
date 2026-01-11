@@ -6,11 +6,11 @@ import {
   IconButton,
   Box,
   Button,
-  Badge,
   styled,
   Card,
   Divider,
-  Popover
+  Popover,
+  Tooltip
 } from '@mui/material'
 import { Link } from 'react-router-dom'
 
@@ -91,7 +91,7 @@ const UserAppBar = ({ children }) => {
                     fontFamily: 'Playfair Display'
                   }}
                 >
-                  Reniel Store
+                  Rene Store
                 </Typography>
               </Box>
 
@@ -109,15 +109,15 @@ const UserAppBar = ({ children }) => {
 
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
                 <IconButton component={Link} to='/cart' sx={{ color: '#7B2D26' }}>
-                  <Badge badgeContent={0} color='secondary'>
+                  <Tooltip title='Carrito' arrow>
                     <ShoppingCartOutlinedIcon />
-                  </Badge>
+                  </Tooltip>
                 </IconButton>
 
                 <IconButton component={Link} to='/chat' sx={{ color: '#7B2D26' }}>
-                  <Badge badgeContent={0} color='secondary'>
+                  <Tooltip title='Soporte' arrow>
                     <SupportAgentIcon />
-                  </Badge>
+                  </Tooltip>
                 </IconButton>
 
                 <IconButton onClick={handleProfile}>

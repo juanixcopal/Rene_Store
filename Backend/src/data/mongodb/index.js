@@ -10,8 +10,7 @@ import makeDashboardData from './dashboard.data.js'
 import makeOrderData from './order.data.js'
 import makeChatData from './chat.data.js'
 
-const MONGO_URI =
-  'mongodb+srv://juanixcopal:cCDTLXuw@cluster0.llqfhjk.mongodb.net/renielstore?retryWrites=true&w=majority'
+const { MONGO_URI } = env
 
 mongoose
   .connect(MONGO_URI, {

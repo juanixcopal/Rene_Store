@@ -6,9 +6,9 @@ export default ({ userData }) => {
 
       const existing = await userData.findByEmail(email)
 
-      if (!existing) {
+      if (!existing || existing === null) {
         return {
-          status: 200,
+          status: 401,
           result: true,
           message: 'Usuario no registrado'
         }
@@ -25,7 +25,7 @@ export default ({ userData }) => {
         return {
           status: 401,
           message: 'Correo electrónico o contraseña son incorrectos',
-          result: false
+          result: true
         }
       }
 

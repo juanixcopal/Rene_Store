@@ -141,7 +141,7 @@ const AdminAppBar = ({ children }) => {
                   fontFamily: 'Playfair Display'
                 }}
               >
-                Reniel Store
+                Rene Store
               </Typography>
             </Box>
 

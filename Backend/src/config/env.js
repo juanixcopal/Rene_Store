@@ -7,7 +7,7 @@ const env = {
   SERVER_HOST: process.env.SERVER_HOST || '0.0.0.0',
   SERVER_TIMEOUT: process.env.SERVER_TIMEOUT || '30s',
 
-  MONGO_URI: 'mongodb+srv://juanixcopal:cCDTLXuw@cluster0.wuryrva.mongodb.net/',
+  MONGO_URI: 'mongodb://localhost:27017/renielstore',
 
   JWT_SECRET: process.env.JWT_SECRET || '05xkc6VM',
   JWT_EXPIRESIN: process.env.JWT_EXPIRESIN || '6h',

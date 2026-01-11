@@ -10,7 +10,8 @@ import {
   TableRow,
   TableCell,
   TableBody,
-  IconButton
+  IconButton,
+  Tooltip
 } from '@mui/material'
 import { useFetchInitUsers } from '../../../hooks/users'
 import ModeEditOutlinedIcon from '@mui/icons-material/ModeEditOutlined'
@@ -64,12 +65,14 @@ const UsersPage = () => {
                     <TableCell>{item.email}</TableCell>
                     <TableCell>{item.rol_id.rol}</TableCell>
                     <TableCell>
-                      <IconButton
-                        sx={{ color: '#7B2D26', height: '30px', width: '30px' }}
-                        onClick={() => toggle(null, 'Editar usuario', 'edit-user', item)}
-                      >
-                        <ModeEditOutlinedIcon />
-                      </IconButton>
+                      <Tooltip title='Editar usuario' arrow>
+                        <IconButton
+                          sx={{ color: '#7B2D26', height: '30px', width: '30px' }}
+                          onClick={() => toggle(null, 'Editar usuario', 'edit-user', item)}
+                        >
+                          <ModeEditOutlinedIcon />
+                        </IconButton>
+                      </Tooltip>
                     </TableCell>
                   </TableRow>
                 )

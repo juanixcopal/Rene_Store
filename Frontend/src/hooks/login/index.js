@@ -9,7 +9,7 @@ export const useFetchInitLogin = () => {
 
   const [message, setMessage] = useState({
     message: '',
-    result: true
+    result: false
   })
 
   const [dataNewUser, setDataNewUser] = useState({
@@ -29,10 +29,10 @@ export const useFetchInitLogin = () => {
   const handleInput = event => {
     setLogin({ ...login, [event.target.name]: event.target.value })
 
-    if (event.target.name === 'password') {
+    if (event.target.name === 'password' || event.target.name === 'email') {
       setMessage({
         message: '',
-        result: true
+        result: false
       })
     }
   }

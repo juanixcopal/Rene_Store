@@ -5,8 +5,17 @@ import { useFetchInitLogin } from '../../hooks/login/index.js'
 const LoginPage = () => {
   const loginHook = useFetchInitLogin()
 
-  const { isRegister, handleToggle, handleInput, loginAction, handleInputNewUser, registerAction } =
-    loginHook
+  const {
+    isRegister,
+    handleToggle,
+    handleInput,
+    loginAction,
+    handleInputNewUser,
+    registerAction,
+    message
+  } = loginHook
+
+  const { message: _message, result } = message
 
   return (
     <Box sx={{ display: 'flex', height: '100vh', position: 'relative', overflow: 'hidden' }}>
@@ -57,14 +66,23 @@ const LoginPage = () => {
                 gap: 2
               }}
             >
-              <TextField label='Correo electrónico' name='email' onChange={handleInput} required />
+              <TextField
+                label='Correo electrónico'
+                name='email'
+                onChange={handleInput}
+                required
+                error={result}
+              />
               <TextField
                 label='Contraseña'
                 name='password'
                 type='password'
                 onChange={handleInput}
                 required
+                error={result}
+                helperText={result ? _message : ''}
               />
+
               <Button variant='contained' type='submit'>
                 INICIAR SESIÓN
               </Button>
@@ -141,7 +159,7 @@ const LoginPage = () => {
           }}
         >
           <Typography fontSize={75} fontWeight={500}>
-            Bienvenid@
+            ¡Hazte cliente!
           </Typography>
 
           <Card

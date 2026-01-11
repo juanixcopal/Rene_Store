@@ -60,7 +60,7 @@ const AdminOrdersPage = () => {
                 <Grid container spacing={2}>
                   {order.items.map(item => (
                     <Grid size={{ lg: 3, md: 6, sm: 6, xs: 12 }} key={item._id}>
-                      <Card sx={{ width: '300px', height: '400px' }}>
+                      <Card>
                         <Box
                           sx={{
                             width: '100%',
