@@ -1,10 +1,12 @@
-# 🛍️ Reniel Store
+# 🪧LA DOCUMENTACIÓN CON LAS NUEVAS FUNCIONALIDADES SE PUEDEN ENCONTRAR EN CADA README DE BACKEND Y FRONTEND
+
+# 🛍️ Rene Store
 
 Sistema completo de e-commerce para tienda de ropa, desarrollado con arquitectura de cliente-servidor desacoplada (Frontend React + Backend Node.js).
 
 ## 📝 Descripción del Proyecto
 
-Reniel Store es una aplicación web full-stack para la gestión integral de una tienda de ropa online. Incluye funcionalidades tanto para clientes (navegación de productos, carrito, compras, chat con soporte) como para administradores (gestión de inventario, pedidos, usuarios y atención al cliente en tiempo real).
+Rene Store es una aplicación web full-stack para la gestión integral de una tienda de ropa online. Incluye funcionalidades tanto para clientes (navegación de productos, carrito, compras, chat con soporte) como para administradores (gestión de inventario, pedidos, usuarios y atención al cliente en tiempo real).
 
 **Proyecto desarrollado para:** Programación Web 1  
 **Fecha:** 09/11/2025  
@@ -548,8 +550,6 @@ axios.post('/products', formData, {
 - Dependency injection en backend
 - Context API bien estructurado
 - Documentación completa del código
-
-
 
 [Plataforma en producción](https://rene-store-1.onrender.com/login)
 
