@@ -1,4 +1,4 @@
-# Backend - Reniel Store
+# Backend - Rene Store
 
 API REST desarrollada con Node.js y Express para la gestión de una tienda de ropa online.
 
@@ -656,3 +656,177 @@ throw new Error('Custom error message')
 - Product → Category (many-to-one)
 - Message → Conversation (many-to-one)
 - Conversation → Users
+
+# NUEVA IMPLEMENTACIÓN (ENTREGA 2)
+
+El backend ahora incluye una API GraphQL que convive con la API REST existente. GraphQL está disponible en el endpoint /graphql y proporciona una forma más flexible de consultar datos.
+
+## Endpoints disponibles
+
+- **REST API**: http://localhost:3050/api/\* (existente)
+- **GraphQL API**: http://localhost:3050/graphql
+- **GraphQL Playground**: http://localhost:3050/graphql (interfaz gráfica para desarrollo)
+
+## Módulos migrados a GraphQL
+
+Actualmente los siguientes módulos están disponibles tanto en REST como en GraphQL:
+
+**🛒 CART (CARRITO)**
+
+Queries:
+
+```graphql
+# Obtener productos del carrito
+query {
+  getCartProducts {
+    _id
+    quantity
+    product_id {
+      name
+      price
+      image
+      category_id {
+        product
+        gender
+      }
+    }
+  }
+}
+
+# Obtener resumen del carrito
+query {
+  getCartSummary {
+    items {
+      id
+      name
+      subtotal
+    }
+    total
+  }
+}
+```
+
+Mutations:
+
+```graphql
+# Disminuir cantidad de producto
+mutation {
+  decreaseProduct(productId: "ID_DEL_PRODUCTO") {
+    removed
+    cartItem {
+      quantity
+    }
+  }
+}
+
+# Comprar carrito (crear orden)
+mutation {
+  buyCart {
+    _id
+    total
+    items {
+      name
+      quantity
+      price
+      subtotal
+    }
+  }
+}
+```
+
+**👥 User (Usuarios)**
+
+Queries:
+
+```graphql
+# Obtener administradores
+query {
+  getAllAdmins {
+    _id
+    user_name
+    user_lastname
+    email
+    rol_id {
+      rol
+    }
+  }
+}
+
+# Obtener usuarios
+query {
+  getAllUsers {
+    _id
+    user_name
+    user_lastname
+    email
+    rol_id {
+      rol
+    }
+  }
+}
+
+# Obtener roles
+query {
+  getAllRoles {
+    _id
+    rol
+  }
+}
+```
+
+Mutations:
+
+```graphql
+# Crear usuario
+mutation {
+  createUser(
+    input: {
+      user_name: "Juan"
+      user_lastname: "Pérez"
+      email: "juan@example.com"
+      password: "password123"
+      rol: "Usuario"
+    }
+  ) {
+    result
+    message
+    user {
+      _id
+      user_name
+      email
+    }
+  }
+}
+
+# Actualizar usuario
+mutation {
+  updateUser(
+    input: {
+      email: "juan@example.com"
+      user_name: "Juan Carlos"
+      user_lastname: "Pérez López"
+      rol: "Administrador"
+    }
+  ) {
+    result
+    message
+    user {
+      _id
+      user_name
+      email
+    }
+  }
+}
+```
+
+## 🆕 Decisión de Desarrollo: Integración de GraphQL
+
+### 13. API Híbrida: REST + GraphQL\*\*
+
+**Decisión:** Mantener la API REST existente y añadir GraphQL como capa adicional, no como reemplazo.
+
+**Razones:**
+
+- **Coexistencia**: Ambas APIs funcionan simultáneamente sin conflictos
+- **Retrocompatibilidad**: El frontend puede seguir usando REST mientras migra a GraphQL
+- **Flexibilidad**: Elegir la mejor herramienta según el caso de uso
