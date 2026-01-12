@@ -657,7 +657,7 @@ throw new Error('Custom error message')
 - Message → Conversation (many-to-one)
 - Conversation → Users
 
-# NUEVA IMPLEMENTACIÓN (ENTREGA 2)
+# Integración con GraphQL (ENTREGA 2)
 
 El backend ahora incluye una API GraphQL que convive con la API REST existente. GraphQL está disponible en el endpoint /graphql y proporciona una forma más flexible de consultar datos.
 
@@ -671,7 +671,7 @@ El backend ahora incluye una API GraphQL que convive con la API REST existente. 
 
 Actualmente los siguientes módulos están disponibles tanto en REST como en GraphQL:
 
-**🛒 CART (CARRITO)**
+**🛒 Cart (Carrito)**
 
 Queries:
 

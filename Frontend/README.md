@@ -514,3 +514,159 @@ api.interceptors.request.use(config => {
 2. **Componentes funcionales** en lugar de clases
 3. **ESLint** configurado
 4. **Git flow** con commits descriptivos
+
+# Integración con GraphQL (ENTREGA 2)
+
+El frontend ahora soporta tanto la API REST como GraphQL del backend. La migración es gradual y ambas conviven sin problemas.
+
+**Configuración**
+La misma instancia de Axios se utiliza para ambas APIs:
+
+```javascript
+// config/data-source.js
+export const instanceAPIRenielStoreGraphql = axios.create({
+  baseURL: `${process.env.REACT_APP_API_BASE}/graphql`,
+  headers: {
+    'Content-Type': 'application/json',
+    token: localStorage.getItem('token')
+  }
+})
+```
+
+## Módulos migrados a GraphQL
+
+**🛒 Cart (Carrito)**
+Las funciones de carrito ahora usan GraphQL en lugar de REST:
+
+```javascript
+// Antes (REST)
+export const getCartSummary = async () => {
+  return await instanceAPIRenielStoreGraphql.get('/cart/query', {
+    headers: { service: 'cart-summary' }
+  })
+}
+
+// Ahora (GraphQL)
+export const getCartSummary = async () => {
+  const response = await instanceAPIRenielStoreGraphql.post('/graphql', {
+    query: `
+      query {
+        getCartSummary {
+          items { id name subtotal }
+          total
+        }
+      }
+    `
+  })
+
+  return {
+    data: response.data.data.getCartSummary
+  }
+}
+```
+
+**Funciones migradas**
+
+- getProductsInCart() → Query getCartProducts
+- getCartSummary() → Query getCartSummary
+- postDecreaseQuantityProduct() → Mutation decreaseProduct
+- postBuyCart() → Mutation buyCart
+
+**👥 User (Usuarios)**
+
+Las funciones de gestión de usuarios ahora usan GraphQL:
+
+```javascript
+// Antes (REST)
+export const getAllAdminUsers = async () => {
+  return await instanceAPIRenielStoreGraphql.get('/user/query', {
+    headers: { service: 'all-admin-users' }
+  })
+}
+
+// Ahora (GraphQL)
+export const getAllAdminUsers = async () => {
+  const response = await instanceAPIRenielStoreGraphql.post('/graphql', {
+    query: `
+      query {
+        getAllAdmins {
+          _id
+          user_name
+          user_lastname
+          email
+          rol_id { rol }
+        }
+      }
+    `
+  })
+
+  return {
+    data: response.data.data.getAllAdmins
+  }
+}
+```
+
+**Funciones migradas**
+
+- getAllAdminUsers() → Query getAllAdmins
+- getAllUserUsers() → Query getAllUsers
+- getAllRoles() → Query getAllRoles
+- postCreateUser() → Mutation createUser
+- putEditUser() → Mutation updateUser
+
+**Uso de variables en Mutations**
+
+Para las mutations con parámetros, ahora usamos variables de GraphQL:
+
+```javascript
+export const postCreateUser = async ({ dataNewUser, showAlert, ... }) => {
+  await instanceAPIRenielStoreGraphql.post('/graphql', {
+    query: `
+      mutation CreateUser($input: CreateUserInput!) {
+        createUser(input: $input) {
+          result
+          message
+          user { _id user_name email }
+        }
+      }
+    `,
+    variables: {
+      input: {
+        user_name: dataNewUser.user_name,
+        user_lastname: dataNewUser.user_lastname,
+        email: dataNewUser.email,
+        password: dataNewUser.password,
+        rol: dataNewUser.rol
+      }
+    }
+  })
+  .then(({ data }) => {
+    const result = data.data.createUser
+    if (result.result) {
+      showAlert(result.message, 'success')
+      // Refrescar datos...
+    }
+  })
+}
+```
+
+**Manejo de Errores en GraphQL**
+
+GraphQL devuelve errores en un formato diferente a REST:
+
+```javascript
+// REST
+.catch(error => {
+  if (error.response?.data?.message) {
+    showAlert(error.response.data.message, 'warning')
+  }
+})
+
+// GraphQL
+.catch(error => {
+  if (error.response?.data?.errors) {
+    const errorMessage = error.response.data.errors[0].message
+    showAlert(errorMessage, 'warning')
+  }
+})
+```
