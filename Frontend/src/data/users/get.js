@@ -1,25 +1,64 @@
-import { instanceAPIRenielStore } from '../../config/data-source'
+import { instanceAPIRenielStoreGraphql } from '../../config/data-source'
 
 export const getAllAdminUsers = async () => {
-  return await instanceAPIRenielStore.get('/user/query', {
-    headers: {
-      service: 'all-admin-users'
-    }
+  const response = await instanceAPIRenielStoreGraphql.post('/graphql', {
+    query: `
+      query {
+        getAllAdmins {
+          _id
+          user_name
+          user_lastname
+          email
+          rol_id {
+            _id
+            rol
+          }
+        }
+      }
+    `
   })
+
+  return {
+    data: response.data.data.getAllAdmins
+  }
 }
 
 export const getAllUserUsers = async () => {
-  return await instanceAPIRenielStore.get('/user/query', {
-    headers: {
-      service: 'all-user-users'
-    }
+  const response = await instanceAPIRenielStoreGraphql.post('/graphql', {
+    query: `
+      query {
+        getAllUsers {
+          _id
+          user_name
+          user_lastname
+          email
+          rol_id {
+            _id
+            rol
+          }
+        }
+      }
+    `
   })
+
+  return {
+    data: response.data.data.getAllUsers
+  }
 }
 
 export const getAllRoles = async () => {
-  return await instanceAPIRenielStore.get('/rol/query', {
-    headers: {
-      service: 'all-rol'
-    }
+  const response = await instanceAPIRenielStoreGraphql.post('/graphql', {
+    query: `
+      query {
+        getAllRoles {
+          _id
+          rol
+        }
+      }
+    `
   })
+
+  return {
+    data: response.data.data.getAllRoles
+  }
 }

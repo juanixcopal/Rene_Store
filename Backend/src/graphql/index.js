@@ -1,17 +1,18 @@
 import { ApolloServer } from 'apollo-server-express'
 import { cartTypeDefs } from './schemas/cart.schema.js'
 import { cartResolvers } from './resolvers/cart.resolvers.js'
+import { userTypeDefs } from './schemas/user.schema.js'
+import { userResolvers } from './resolvers/user.resolvers.js'
 import jwt from 'jsonwebtoken'
 
-const typeDefs = [cartTypeDefs]
-const resolvers = [cartResolvers]
+const typeDefs = [cartTypeDefs, userTypeDefs] // 👈 Añade userTypeDefs
+const resolvers = [cartResolvers, userResolvers] // 👈 Añade userResolvers
 
 export function createApolloServer() {
   return new ApolloServer({
     typeDefs,
     resolvers,
     context: async ({ req }) => {
-      // 🔹 Soportar ambos formatos: "token" y "Authorization"
       const token = req.headers['token'] || req.headers.authorization?.replace('Bearer ', '')
 
       if (!token) {
@@ -19,7 +20,6 @@ export function createApolloServer() {
       }
 
       try {
-        // 🔹 Verificar el token usando tu SECRET
         const decodedToken = jwt.verify(token, process.env.JWT_SECRET)
 
         return {

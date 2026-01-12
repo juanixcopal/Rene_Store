@@ -1,4 +1,4 @@
-import { instanceAPIRenielStore, instanceAPIRenielStoreGraphql } from '../../config/data-source'
+import { instanceAPIRenielStoreGraphql } from '../../config/data-source'
 
 export const getProductsInCart = async () => {
   const response = await instanceAPIRenielStoreGraphql.post('/graphql', {
