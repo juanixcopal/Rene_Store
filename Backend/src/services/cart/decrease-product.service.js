@@ -2,7 +2,7 @@ export default ({ cartData }) => {
   return async ({ request }) => {
     try {
       const { id } = request.user
-      const { idProduct } = request.params
+      const { idProduct } = request.body
 
       const product = await cartData.decreaseProduct(id, idProduct)
 

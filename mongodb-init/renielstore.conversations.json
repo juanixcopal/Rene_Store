@@ -1,0 +1,52 @@
+[{
+  "_id": {
+    "$oid": "69111a4ca23f602ed184c9fc"
+  },
+  "participants": [
+    {
+      "$oid": "691114857c1ebcdc04639d9a"
+    }
+  ],
+  "lastMessage": {
+    "text": "yo le aviso ",
+    "sender": {
+      "$oid": "691114857c1ebcdc04639d9a"
+    },
+    "createdAt": {
+      "$date": "2025-11-09T22:52:14.030Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2025-11-09T22:48:44.725Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-09T22:52:14.170Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "692c8fe9e59f14db5ee7bef8"
+  },
+  "participants": [
+    {
+      "$oid": "69106ea5d8fe1dd496336232"
+    }
+  ],
+  "lastMessage": {
+    "text": "Mensaje de prueba",
+    "sender": {
+      "$oid": "69106ea5d8fe1dd496336232"
+    },
+    "createdAt": {
+      "$date": "2025-11-30T18:41:55.225Z"
+    }
+  },
+  "createdAt": {
+    "$date": "2025-11-30T18:41:45.318Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-30T18:41:55.372Z"
+  },
+  "__v": 0
+}]

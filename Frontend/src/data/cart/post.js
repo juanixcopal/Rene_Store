@@ -1,4 +1,4 @@
-import { instanceAPIRenielStore } from '../../config/data-source'
+import { instanceAPIRenielStore, instanceAPIRenielStoreGraphql } from '../../config/data-source'
 
 export const postIncreaseQuantityProduct = async ({
   idProduct,
@@ -8,6 +8,8 @@ export const postIncreaseQuantityProduct = async ({
   const { _getProductsInCart } = fetchProductsInCart
   const { _getCartSummary } = fetchCartSummary
 
+  // ⚠️ Esta función sigue usando REST porque no hay mutation en GraphQL
+  // Si quieres migrarla a GraphQL, necesitas crear la mutation en el backend
   await instanceAPIRenielStore
     .post(
       `/product/add/${idProduct}`,
@@ -38,18 +40,23 @@ export const postDecreaseQuantityProduct = async ({
   const { _getProductsInCart } = fetchProductsInCart
   const { _getCartSummary } = fetchCartSummary
 
-  await instanceAPIRenielStore
-    .post(
-      `/cart/decrease/${idProduct}`,
-      {},
-      {
-        headers: {
-          service: 'decrease-product'
+  await instanceAPIRenielStoreGraphql
+    .post('/graphql', {
+      query: `
+        mutation {
+          decreaseProduct(productId: "${idProduct}") {
+            removed
+            cartItem {
+              _id
+              quantity
+            }
+          }
         }
-      }
-    )
+      `
+    })
     .then(({ data }) => {
-      if (data.result) {
+      // GraphQL siempre devuelve éxito si no hay errores
+      if (data.data && data.data.decreaseProduct) {
         _getProductsInCart && _getProductsInCart()
         _getCartSummary && _getCartSummary()
       }
@@ -64,27 +71,41 @@ export const postBuyCart = async ({ fetchProductsInCart, fetchCartSummary, showA
   const { _getProductsInCart } = fetchProductsInCart
   const { _getCartSummary } = fetchCartSummary
 
-  await instanceAPIRenielStore
-    .post(
-      '/cart/buy',
-      {},
-      {
-        headers: {
-          service: 'buy-cart'
+  await instanceAPIRenielStoreGraphql
+    .post('/graphql', {
+      query: `
+        mutation {
+          buyCart {
+            _id
+            total
+            items {
+              name
+              quantity
+              price
+              subtotal
+            }
+          }
         }
-      }
-    )
+      `
+    })
     .then(({ data }) => {
-      if (data.result) {
-        showAlert(data.message, 'success')
+      if (data.data && data.data.buyCart) {
+        showAlert('Compra realizada con éxito', 'success')
         _getProductsInCart && _getProductsInCart()
         _getCartSummary && _getCartSummary()
-      } else {
-        showAlert(data.message, 'warning')
       }
     })
     .catch(error => {
       console.error('Error al hacer el POST:', error)
+
+      // Manejar errores de GraphQL
+      if (error.response?.data?.errors) {
+        const errorMessage = error.response.data.errors[0].message
+        showAlert(errorMessage, 'warning')
+      } else {
+        showAlert('Error al procesar la compra', 'error')
+      }
+
       throw error
     })
 }

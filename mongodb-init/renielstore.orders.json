@@ -1,0 +1,166 @@
+[{
+  "_id": {
+    "$oid": "6910a954a77ffd8c416d4e37"
+  },
+  "user_id": {
+    "$oid": "69105b3528c05d2bb0a9de12"
+  },
+  "items": [
+    {
+      "product_id": {
+        "$oid": "6910a949a77ffd8c416d4e17"
+      },
+      "name": "Sudadera",
+      "description": "Una bonita sudadera",
+      "image": "https://res.cloudinary.com/drch5a3kf/image/upload/v1762699591/reniel_store/products/x8xq2tfbu9cln5zm7fy5.webp",
+      "category": "Camisas",
+      "gender": "Hombre",
+      "quantity": 1,
+      "price": 25,
+      "subtotal": 25,
+      "_id": {
+        "$oid": "6910a954a77ffd8c416d4e38"
+      }
+    }
+  ],
+  "total": 25,
+  "createdAt": {
+    "$date": "2025-11-09T14:46:44.701Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-09T14:46:44.701Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69109f33732ea60a86fa7938"
+  },
+  "user_id": {
+    "$oid": "69104efa5c1f0b344c28ee2d"
+  },
+  "items": [
+    {
+      "product_id": {
+        "$oid": "691021dee24982705fab0cb3"
+      },
+      "name": "Pantalones uno",
+      "description": "No deberia de cambiar la imagen",
+      "image": "https://res.cloudinary.com/drch5a3kf/image/upload/v1762669341/reniel_store/products/wkhhonszkwmjpebsrxdg.jpg",
+      "category": "Pantalones",
+      "gender": "Hombre",
+      "quantity": 1,
+      "price": 20,
+      "subtotal": 20,
+      "_id": {
+        "$oid": "69109f33732ea60a86fa7939"
+      }
+    },
+    {
+      "product_id": {
+        "$oid": "6910224fe24982705fab0cc0"
+      },
+      "name": "Camisa uno",
+      "description": "Camisa de cuadros",
+      "image": "https://res.cloudinary.com/drch5a3kf/image/upload/v1762665038/reniel_store/products/otn92mckbgdoyvvmzlkp.jpg",
+      "category": "Camisas",
+      "gender": "Hombre",
+      "quantity": 1,
+      "price": 20,
+      "subtotal": 20,
+      "_id": {
+        "$oid": "69109f33732ea60a86fa793a"
+      }
+    },
+    {
+      "product_id": {
+        "$oid": "691022fbe24982705fab0cc8"
+      },
+      "name": "Pantalones 2",
+      "description": "Otros pantalones",
+      "image": "https://res.cloudinary.com/drch5a3kf/image/upload/v1762665210/reniel_store/products/dgqkuqczbmyfly9lfu6r.jpg",
+      "category": "Pantalones",
+      "gender": "Hombre",
+      "quantity": 8,
+      "price": 30,
+      "subtotal": 240,
+      "_id": {
+        "$oid": "69109f33732ea60a86fa793b"
+      }
+    },
+    {
+      "product_id": {
+        "$oid": "69102500e24982705fab0d0e"
+      },
+      "name": "Zapatitos",
+      "description": "Unos zapatitos",
+      "image": "https://res.cloudinary.com/drch5a3kf/image/upload/v1762665727/reniel_store/products/k08hc5erlbdqo3igxfzp.jpg",
+      "category": "Calzado",
+      "gender": "Hombre",
+      "quantity": 1,
+      "price": 60,
+      "subtotal": 60,
+      "_id": {
+        "$oid": "69109f33732ea60a86fa793c"
+      }
+    }
+  ],
+  "total": 340,
+  "createdAt": {
+    "$date": "2025-11-09T14:03:31.265Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-09T14:03:31.265Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69111a3aa23f602ed184c9ed"
+  },
+  "user_id": {
+    "$oid": "691114857c1ebcdc04639d9a"
+  },
+  "items": [
+    {
+      "product_id": {
+        "$oid": "6910251be24982705fab0d13"
+      },
+      "name": "Blusa dorada",
+      "description": "Una blusa muy dorada",
+      "image": "https://res.cloudinary.com/drch5a3kf/image/upload/v1762665754/reniel_store/products/xnkir6lbloxywgntnn0q.jpg",
+      "category": "Blusas",
+      "gender": "Mujer",
+      "quantity": 1,
+      "price": 40,
+      "subtotal": 40,
+      "_id": {
+        "$oid": "69111a3aa23f602ed184c9ee"
+      }
+    },
+    {
+      "product_id": {
+        "$oid": "691119f4a23f602ed184c9a6"
+      },
+      "name": "Pantalones facheros 2",
+      "description": "Unos pantalones facheros",
+      "image": "https://res.cloudinary.com/drch5a3kf/image/upload/v1762728435/reniel_store/products/g4so8cx1jzexno57l44t.webp",
+      "category": "Pantalones",
+      "gender": "Mujer",
+      "quantity": 3,
+      "price": 25,
+      "subtotal": 75,
+      "_id": {
+        "$oid": "69111a3aa23f602ed184c9ef"
+      }
+    }
+  ],
+  "total": 115,
+  "createdAt": {
+    "$date": "2025-11-09T22:48:26.323Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-09T22:48:26.323Z"
+  },
+  "__v": 0
+}]

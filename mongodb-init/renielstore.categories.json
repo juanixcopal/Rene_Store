@@ -1,8 +1,8 @@
 [{
   "_id": {
-    "$oid": "6907ea39ea3c511bbe53e259"
+    "$oid": "6907ea46ea3c511bbe53e25f"
   },
-  "product": "Blusas",
+  "product": "Pantalones",
   "gender": "Mujer",
   "__v": 0
 },
@@ -16,9 +16,17 @@
 },
 {
   "_id": {
-    "$oid": "6907ea46ea3c511bbe53e25f"
+    "$oid": "6907ea79ea3c511bbe53e265"
   },
-  "product": "Pantalones",
+  "product": "Calzado",
+  "gender": "Hombre",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6907ea39ea3c511bbe53e259"
+  },
+  "product": "Blusas",
   "gender": "Mujer",
   "__v": 0
 },
@@ -27,14 +35,6 @@
     "$oid": "6907ea76ea3c511bbe53e262"
   },
   "product": "Camisas",
-  "gender": "Hombre",
-  "__v": 0
-},
-{
-  "_id": {
-    "$oid": "6907ea79ea3c511bbe53e265"
-  },
-  "product": "Calzado",
   "gender": "Hombre",
   "__v": 0
 },

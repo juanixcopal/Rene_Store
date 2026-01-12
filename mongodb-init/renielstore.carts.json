@@ -1,0 +1,13 @@
+[{
+  "_id": {
+    "$oid": "692c8fd9e59f14db5ee7bee9"
+  },
+  "user_id": {
+    "$oid": "69106ea5d8fe1dd496336232"
+  },
+  "product_id": {
+    "$oid": "69102370e24982705fab0cd3"
+  },
+  "quantity": 1,
+  "__v": 0
+}]

@@ -1,0 +1,258 @@
+[{
+  "_id": {
+    "$oid": "69111a59a23f602ed184ca02"
+  },
+  "conversation_id": {
+    "$oid": "69111a4ca23f602ed184c9fc"
+  },
+  "sender_id": {
+    "$oid": "691114857c1ebcdc04639d9a"
+  },
+  "sender_role": "Usuario",
+  "content": "hola ",
+  "readBy": [
+    {
+      "$oid": "691114857c1ebcdc04639d9a"
+    },
+    {
+      "$oid": "69028659dbea07dae225474b"
+    },
+    {
+      "$oid": "69106e86d8fe1dd496336228"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-11-09T22:48:57.350Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-13T19:16:02.164Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69111a6ba23f602ed184ca07"
+  },
+  "conversation_id": {
+    "$oid": "69111a4ca23f602ed184c9fc"
+  },
+  "sender_id": {
+    "$oid": "691114857c1ebcdc04639d9a"
+  },
+  "sender_role": "Usuario",
+  "content": "buenas noches ",
+  "readBy": [
+    {
+      "$oid": "691114857c1ebcdc04639d9a"
+    },
+    {
+      "$oid": "69028659dbea07dae225474b"
+    },
+    {
+      "$oid": "69106e86d8fe1dd496336228"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-11-09T22:49:15.967Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-13T19:16:02.164Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69111a99a23f602ed184ca17"
+  },
+  "conversation_id": {
+    "$oid": "69111a4ca23f602ed184c9fc"
+  },
+  "sender_id": {
+    "$oid": "69028659dbea07dae225474b"
+  },
+  "sender_role": "Administrador",
+  "content": "Hola buenas noches, es un gusto ponernos en contacto contigo, en qué te podemos ayudar? 👌",
+  "readBy": [
+    {
+      "$oid": "69028659dbea07dae225474b"
+    },
+    {
+      "$oid": "69106e86d8fe1dd496336228"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-11-09T22:50:01.922Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-13T19:16:02.164Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69111ac3a23f602ed184ca1c"
+  },
+  "conversation_id": {
+    "$oid": "69111a4ca23f602ed184c9fc"
+  },
+  "sender_id": {
+    "$oid": "691114857c1ebcdc04639d9a"
+  },
+  "sender_role": "Usuario",
+  "content": "El pedido dice que llega el domingo ",
+  "readBy": [
+    {
+      "$oid": "691114857c1ebcdc04639d9a"
+    },
+    {
+      "$oid": "69106e86d8fe1dd496336228"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-11-09T22:50:43.968Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-13T19:16:02.164Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69111ad0a23f602ed184ca21"
+  },
+  "conversation_id": {
+    "$oid": "69111a4ca23f602ed184c9fc"
+  },
+  "sender_id": {
+    "$oid": "691114857c1ebcdc04639d9a"
+  },
+  "sender_role": "Usuario",
+  "content": "pero, el domingo no voy a estar en la casa ",
+  "readBy": [
+    {
+      "$oid": "691114857c1ebcdc04639d9a"
+    },
+    {
+      "$oid": "69106e86d8fe1dd496336228"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-11-09T22:50:56.927Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-13T19:16:02.164Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69111afaa23f602ed184ca26"
+  },
+  "conversation_id": {
+    "$oid": "69111a4ca23f602ed184c9fc"
+  },
+  "sender_id": {
+    "$oid": "69028659dbea07dae225474b"
+  },
+  "sender_role": "Administrador",
+  "content": "No hay ningún inconveniente, podemos agendar un día en que te encuentres en casa para poder pasar a entregar tu pedido",
+  "readBy": [
+    {
+      "$oid": "69028659dbea07dae225474b"
+    },
+    {
+      "$oid": "69106e86d8fe1dd496336228"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-11-09T22:51:38.999Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-13T19:16:02.164Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69111b16a23f602ed184ca2b"
+  },
+  "conversation_id": {
+    "$oid": "69111a4ca23f602ed184c9fc"
+  },
+  "sender_id": {
+    "$oid": "691114857c1ebcdc04639d9a"
+  },
+  "sender_role": "Usuario",
+  "content": "Perfecto ",
+  "readBy": [
+    {
+      "$oid": "691114857c1ebcdc04639d9a"
+    },
+    {
+      "$oid": "69106e86d8fe1dd496336228"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-11-09T22:52:06.790Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-13T19:16:02.164Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "69111b1ea23f602ed184ca30"
+  },
+  "conversation_id": {
+    "$oid": "69111a4ca23f602ed184c9fc"
+  },
+  "sender_id": {
+    "$oid": "691114857c1ebcdc04639d9a"
+  },
+  "sender_role": "Usuario",
+  "content": "yo le aviso ",
+  "readBy": [
+    {
+      "$oid": "691114857c1ebcdc04639d9a"
+    },
+    {
+      "$oid": "69106e86d8fe1dd496336228"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-11-09T22:52:14.030Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-13T19:16:02.164Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "692c8ff3e59f14db5ee7befe"
+  },
+  "conversation_id": {
+    "$oid": "692c8fe9e59f14db5ee7bef8"
+  },
+  "sender_id": {
+    "$oid": "69106ea5d8fe1dd496336232"
+  },
+  "sender_role": "Usuario",
+  "content": "Mensaje de prueba",
+  "readBy": [
+    {
+      "$oid": "69106ea5d8fe1dd496336232"
+    },
+    {
+      "$oid": "69106e86d8fe1dd496336228"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-11-30T18:41:55.225Z"
+  },
+  "updatedAt": {
+    "$date": "2025-11-30T18:42:25.442Z"
+  },
+  "__v": 0
+}]
