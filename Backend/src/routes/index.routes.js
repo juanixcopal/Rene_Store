@@ -30,7 +30,9 @@ export default ({ config }) => {
       cors({
         origin: [
           'https://rene-store-1.onrender.com', // 🔹 URL frontend en Render
-          'http://localhost:3000' // 🔹 para pruebas locales
+          'http://localhost:3000', // 🔹 React (anterior)
+          'http://localhost:5173', // 🔹 Svelte (Vite)
+          'http://localhost:4173'  // 🔹 Svelte preview
         ],
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
         credentials: true

@@ -1,58 +1,69 @@
-# 🪧LA DOCUMENTACIÓN CON LAS NUEVAS FUNCIONALIDADES SE PUEDEN ENCONTRAR EN CADA README DE BACKEND Y FRONTEND
-
 # 🛍️ Rene Store
 
-Sistema completo de e-commerce para tienda de ropa, desarrollado con arquitectura de cliente-servidor desacoplada (Frontend React + Backend Node.js).
+Sistema completo de e-commerce para tienda de ropa, desarrollado con arquitectura de cliente-servidor desacoplada. El proyecto cuenta con **dos frontends** independientes que consumen el mismo backend.
 
 ## 📝 Descripción del Proyecto
 
 Rene Store es una aplicación web full-stack para la gestión integral de una tienda de ropa online. Incluye funcionalidades tanto para clientes (navegación de productos, carrito, compras, chat con soporte) como para administradores (gestión de inventario, pedidos, usuarios y atención al cliente en tiempo real).
 
-**Proyecto desarrollado para:** Programación Web 1  
-**Fecha:** 09/11/2025  
+**Programación Web 1** — Frontend React + Backend Node.js
+**Programación Web 2** — Frontend Svelte 5 (nuevo) consumiendo el mismo backend
 **Repositorio:** [github.com/juanixcopal/Rene_Store](https://github.com/juanixcopal/Rene_Store)
 
 ## 🏗️ Arquitectura del Sistema
 
 ```
 Rene_Store/
-├── Frontend/          # Aplicación React (Cliente SPA)
+├── Frontend/              # Aplicación React (PW1 — cliente completo con carrito y chat)
 │   ├── src/
-│   │   ├── components/      # Componentes reutilizables
-│   │   ├── config/          # Configuraciones
-│   │   ├── data/            # Datos estáticos o mocks
-│   │   ├── helpers/         # Utilidades
-│   │   ├── hooks/           # Custom Hooks de React
-│   │   ├── images/          # Imágenes y assets locales (logo)
-│   │   ├── pages/           # Vistas de la aplicación
-│   │   ├── provider/        # Context API (Auth, Alert)
-│   │   └── theme/           # Material-UI Theme
-│   ├── public/
+│   │   ├── components/        # Componentes reutilizables
+│   │   ├── hooks/             # Custom Hooks de React
+│   │   ├── pages/             # Vistas (admin y usuario)
+│   │   ├── provider/          # Context API (Auth, Alert)
+│   │   └── theme/             # Material-UI Theme
 │   └── package.json
 │
-├── Backend/           # API REST con Node.js (Servidor)
-│   ├── models/              # Esquemas de MongoDB
+├── Frontend-Svelte/       # Aplicación Svelte 5 (PW2 — gestión de productos y usuarios)
 │   ├── src/
-│   │   ├── config/          # Configuraciones
-│   │   ├── controllers/     # Controladores HTTP
-│   │   ├── data/mongodb/    # Capa de acceso a datos
-│   │   ├── helpers/         # Funciones auxiliares
-│   │   ├── middlewares/     # Middlewares personalizados
-│   │   ├── routes/          # Definición de rutas
-│   │   ├── server/          # Configuraciones del servidor
-│   │   ├── services/        # Lógica de negocio
+│   │   ├── lib/
+│   │   │   ├── stores/        # Estado global con $state() (auth, router, toast)
+│   │   │   └── services/      # Llamadas a la API con Axios
+│   │   ├── components/        # Componentes reutilizables con $props() y callbacks
+│   │   ├── pages/             # Vistas: Login, Products, ProductDetail, Profile, Users
+│   │   ├── App.svelte         # Raíz: router + guards de ruta con $effect()
+│   │   └── app.css            # Design system con variables CSS
 │   └── package.json
 │
-└── README.md         # Este archivo
+├── Backend/               # API REST con Node.js (compartida por ambos frontends)
+│   ├── models/                # Esquemas de MongoDB (8 colecciones)
+│   ├── src/
+│   │   ├── config/            # Configuraciones (Cloudinary, Socket.io, env)
+│   │   ├── controllers/       # Controladores HTTP
+│   │   ├── data/mongodb/      # Capa de acceso a datos
+│   │   ├── graphql/           # Apollo Server + esquemas GraphQL
+│   │   ├── middlewares/       # JWT, roles, validación, service selector
+│   │   ├── routes/            # Definición de rutas
+│   │   ├── services/          # Lógica de negocio
+│   │   └── server/            # Inicialización del servidor Express
+│   └── package.json
+│
+└── README.md              # Este archivo
 ```
 
 ### 🎯 Principios Arquitectónicos
 
-**Frontend:**
+**Frontend React (PW1):**
 
 - **Arquitectura por funcionalidad**: Componentes organizados por feature, no por tipo
 - **Context API**: Estado global sin complejidad de Redux
 - **Separación de interfaces**: Rutas y componentes distintos para usuario/admin
+
+**Frontend Svelte 5 (PW2):**
+
+- **Runes**: `$state()`, `$derived()`, `$effect()`, `$props()` para reactividad explícita
+- **Stores como módulos**: Estado global compartido sin Context API
+- **Router SPA propio**: Hash routing sin depender de SvelteKit
+- **CSS puro con design tokens**: Variables CSS reutilizables sin frameworks externos
 
 **Backend:**
 
@@ -62,7 +73,7 @@ Rene_Store/
 
 ## 🚀 Stack Tecnológico Completo
 
-### Frontend
+### Frontend React (PW1)
 
 | Tecnología       | Versión | Propósito                |
 | ---------------- | ------- | ------------------------ |
@@ -73,6 +84,15 @@ Rene_Store/
 | Axios            | 1.13.1  | Cliente HTTP             |
 | JWT-Decode       | 4.0.0   | Decodificación de tokens |
 | Socket.io Client | 4.8.1   | WebSockets para chat     |
+
+### Frontend Svelte 5 (PW2)
+
+| Tecnología    | Versión | Propósito                             |
+| ------------- | ------- | ------------------------------------- |
+| Svelte        | 5.x     | Framework UI con sistema de runes     |
+| Vite          | 6.x     | Bundler y servidor de desarrollo      |
+| Axios         | 1.x     | Cliente HTTP con interceptores        |
+| Google Fonts  | —       | Tipografías: Playfair Display + Inter |
 
 ### Backend
 
@@ -144,25 +164,31 @@ npm run dev
 
 ✅ El backend estará disponible en `http://localhost:3050`
 
-### 3️⃣ Configurar y Ejecutar el Frontend
+### 3️⃣ Configurar y Ejecutar el Frontend React (PW1)
 
 **En otra terminal:**
 
 ```bash
-# Navegar al frontend
 cd Frontend
-
-# Instalar dependencias
 npm install
-
-# Crear archivo .env
 echo "REACT_APP_API_BASE=http://localhost:3050" > .env
-
-# Iniciar aplicación
 npm start
 ```
 
-✅ El frontend se abrirá automáticamente en `http://localhost:3000`
+✅ Disponible en `http://localhost:3000`
+
+### 4️⃣ Configurar y Ejecutar el Frontend Svelte 5 (PW2)
+
+**En otra terminal:**
+
+```bash
+cd Frontend-Svelte
+npm install
+# El archivo .env ya está creado con: VITE_API_BASE=http://localhost:3050/api
+npm run dev
+```
+
+✅ Disponible en `http://localhost:5173`
 
 ### 4️⃣ Crear Usuario Administrador (Opcional)
 
@@ -181,10 +207,11 @@ db.Users.updateOne(
 
 ## 📚 Documentación Detallada
 
-Para instrucciones completas de instalación, configuración, decisiones técnicas y desarrollo:
+Cada carpeta tiene su propio README con instrucciones de instalación, estructura, decisiones técnicas y más:
 
-- **[📱 Frontend README](./Frontend/README.md)** - Documentación completa del cliente (13 decisiones técnicas)
-- **[⚙️ Backend README](./Backend/Readme.md)** - Documentación completa del servidor (12 decisiones técnicas)
+- **[📱 Frontend React README](./Frontend/README.md)** — Documentación del cliente React (PW1)
+- **[⚡ Frontend Svelte 5 README](./Frontend-Svelte/README.md)** — Documentación del cliente Svelte 5 (PW2): runes usadas, endpoints, estructura y decisiones técnicas
+- **[⚙️ Backend README](./Backend/Readme.md)** — Documentación del servidor Node.js
 
 ## 🎯 Funcionalidades Principales
 
