@@ -6,8 +6,9 @@ Sistema completo de e-commerce para tienda de ropa, desarrollado con arquitectur
 
 Rene Store es una aplicación web full-stack para la gestión integral de una tienda de ropa online. Incluye funcionalidades tanto para clientes (navegación de productos, carrito, compras, chat con soporte) como para administradores (gestión de inventario, pedidos, usuarios y atención al cliente en tiempo real).
 
-**Programación Web 1** — Frontend React + Backend Node.js
-**Programación Web 2** — Frontend Svelte 5 (nuevo) consumiendo el mismo backend
+**Programación Web 1** — Frontend React + Backend Node.js  
+**Programación Web 2 (Práctica 1)** — Frontend Svelte 5 consumiendo el backend Node.js  
+**Programación Web 2 (Práctica 2)** — Backend Python/FastAPI que reemplaza al Node.js, compatible con el frontend Svelte 5 sin modificaciones  
 **Repositorio:** [github.com/juanixcopal/Rene_Store](https://github.com/juanixcopal/Rene_Store)
 
 ## 🏗️ Arquitectura del Sistema
@@ -23,7 +24,7 @@ Rene_Store/
 │   │   └── theme/             # Material-UI Theme
 │   └── package.json
 │
-├── Frontend-Svelte/       # Aplicación Svelte 5 (PW2 — gestión de productos y usuarios)
+├── Frontend-Svelte/       # Aplicación Svelte 5 (PW2 Práctica 1 — gestión de productos y usuarios)
 │   ├── src/
 │   │   ├── lib/
 │   │   │   ├── stores/        # Estado global con $state() (auth, router, toast)
@@ -34,7 +35,7 @@ Rene_Store/
 │   │   └── app.css            # Design system con variables CSS
 │   └── package.json
 │
-├── Backend/               # API REST con Node.js (compartida por ambos frontends)
+├── Backend/               # API REST con Node.js (PW1 — backend original completo)
 │   ├── models/                # Esquemas de MongoDB (8 colecciones)
 │   ├── src/
 │   │   ├── config/            # Configuraciones (Cloudinary, Socket.io, env)
@@ -46,6 +47,21 @@ Rene_Store/
 │   │   ├── services/          # Lógica de negocio
 │   │   └── server/            # Inicialización del servidor Express
 │   └── package.json
+│
+├── Backend-Python/        # ✨ NUEVO — API REST con Python/FastAPI (PW2 Práctica 2)
+│   ├── main.py                # Punto de entrada FastAPI
+│   ├── requirements.txt
+│   ├── AI_DOCUMENTATION.md   # Memoria de uso de IA (prompts, errores, análisis)
+│   ├── static/uploads/        # Imágenes subidas de productos
+│   └── app/
+│       ├── core/              # Config, JWT, dependencias, excepciones globales
+│       ├── database/          # SQLAlchemy engine + seed de datos iniciales
+│       ├── models/            # Modelos ORM: Role, User, Category, Product
+│       ├── schemas/           # Esquemas Pydantic para validación de inputs
+│       ├── repositories/      # Capa de acceso a datos (patrón repositorio)
+│       ├── services/          # Lógica de negocio
+│       ├── routers/           # Controladores HTTP (mismo contrato que Node.js)
+│       └── helpers.py         # Serialización de respuestas JSON (_id style)
 │
 └── README.md              # Este archivo
 ```
@@ -65,11 +81,19 @@ Rene_Store/
 - **Router SPA propio**: Hash routing sin depender de SvelteKit
 - **CSS puro con design tokens**: Variables CSS reutilizables sin frameworks externos
 
-**Backend:**
+**Backend Node.js (PW1):**
 
 - **Arquitectura Hexagonal**: Separación en capas (Controllers → Services → Data → Models)
 - **Dependency Injection**: Helpers y services reciben sus dependencias
 - **Sistema de servicios dinámicos**: Header `service` determina la operación a ejecutar
+
+**Backend Python/FastAPI (PW2 Práctica 2):**
+
+- **Arquitectura limpia en 5 capas**: Routers → Services → Repositories → Models + Schemas
+- **Patrón Repositorio**: Acceso a datos encapsulado, la lógica de negocio no toca la BD directamente
+- **Validación con Pydantic v2**: Errores 422 automáticos en inputs inválidos
+- **Manejador global de excepciones**: Traduce excepciones de negocio a respuestas HTTP limpias
+- **Compatibilidad total**: Mismo contrato de API que el backend Node.js → el frontend Svelte 5 funciona sin cambios
 
 ## 🚀 Stack Tecnológico Completo
 
@@ -94,7 +118,7 @@ Rene_Store/
 | Axios         | 1.x     | Cliente HTTP con interceptores        |
 | Google Fonts  | —       | Tipografías: Playfair Display + Inter |
 
-### Backend
+### Backend Node.js (PW1 — original completo)
 
 | Tecnología        | Versión | Propósito                  |
 | ----------------- | ------- | -------------------------- |
@@ -111,14 +135,28 @@ Rene_Store/
 | Helmet            | 8.0.0   | Seguridad HTTP             |
 | CORS              | 2.8.5   | Control de acceso          |
 
+### Backend Python/FastAPI (PW2 Práctica 2 — sustituto del Node.js)
+
+| Tecnología      | Versión | Propósito                                     |
+| --------------- | ------- | --------------------------------------------- |
+| Python          | 3.12    | Lenguaje del servidor                         |
+| FastAPI         | 0.136+  | Framework HTTP asíncrono                      |
+| SQLAlchemy      | 2.0+    | ORM para acceso a datos                       |
+| SQLite          | -       | Base de datos relacional (sin configuración)  |
+| Pydantic v2     | 2.x     | Validación de datos + errores 422 automáticos |
+| python-jose     | 3.x     | Generación y validación de JWT                |
+| bcrypt          | 4.x     | Hashing seguro de contraseñas                 |
+| uvicorn         | 0.48+   | Servidor ASGI                                 |
+
 ## ⚡ Inicio Rápido
 
 ### Requisitos Previos
 
-- **Node.js** v22.15.0 o superior
-- **MongoDB** v4.4 o superior (corriendo localmente o MongoDB Atlas)
-- **Cuenta de Cloudinary** (gratuita) para almacenamiento de imágenes
-- **npm**
+- **Node.js** v22.15.0 o superior (para el backend Node.js y los frontends)
+- **Python** v3.12 o superior (para el backend Python/FastAPI)
+- **MongoDB** v4.4 o superior (solo necesario para el backend Node.js)
+- **Cuenta de Cloudinary** (solo necesaria para el backend Node.js)
+- **npm** y **pip**
 
 ### 1️⃣ Clonar el Repositorio
 
@@ -127,46 +165,72 @@ git clone https://github.com/juanixcopal/Rene_Store.git
 cd Rene_Store
 ```
 
-### 2️⃣ Configurar y Ejecutar el Backend
+---
+
+## 🐍 Backend Python/FastAPI — Práctica 2 (recomendado)
+
+> Este backend reemplaza al Node.js. El frontend Svelte 5 funciona sin ningún cambio.
+
+### Arrancar el backend Python
 
 ```bash
-# Navegar al backend
-cd Backend
+cd Backend-Python
 
 # Instalar dependencias
+pip install -r requirements.txt
+
+# Iniciar el servidor (puerto 3050, igual que el Node.js)
+python -m uvicorn main:app --host 0.0.0.0 --port 3050 --reload
+```
+
+✅ API disponible en `http://localhost:3050`  
+✅ Documentación interactiva en `http://localhost:3050/docs`  
+✅ La base de datos SQLite y los datos de ejemplo se crean **automáticamente** al primer arranque.
+
+### Arrancar el frontend Svelte 5 (apuntando al backend Python)
+
+```bash
+cd Frontend-Svelte
+npm install
+# El .env ya apunta a http://localhost:3050/api — sin cambios necesarios
+npm run dev
+```
+
+✅ Frontend disponible en `http://localhost:5173`
+
+### Usuarios por defecto (backend Python)
+
+| Email | Contraseña | Rol |
+|---|---|---|
+| admin@gmail.com | 123456 | Administrador |
+| user@gmail.com | 123456 | Usuario |
+
+---
+
+## 🟢 Backend Node.js — PW1 (backend original)
+
+### 2️⃣ Configurar y Ejecutar el Backend Node.js
+
+```bash
+cd Backend
 npm install
 
-# Crear archivo .env con las siguientes variables
-cat > .env << EOF
-SERVER_PORT=3050
-SERVER_HOST=0.0.0.0
-SERVER_TIMEOUT=30s
+# Crear archivo .env
+# SERVER_PORT=3050
+# MONGO_URI=mongodb://localhost:27017/renielstore
+# JWT_SECRET=tu_secreto_super_seguro_aqui
+# JWT_EXPIRESIN=6h
+# BCRYPT_SALT_ROUNDS=10
+# CLOUDINARY_CLOUD_NAME=...
+# CLOUDINARY_API_KEY=...
+# CLOUDINARY_API_SECRET=...
 
-MONGO_URI=mongodb://localhost:27017/renielstore
-
-JWT_SECRET=tu_secreto_super_seguro_aqui
-JWT_EXPIRESIN=6h
-
-BCRYPT_SALT_ROUNDS=10
-
-CLOUDINARY_CLOUD_NAME=tu_cloud_name
-CLOUDINARY_API_KEY=tu_api_key
-CLOUDINARY_API_SECRET=tu_api_secret
-EOF
-
-# Iniciar MongoDB (si es local)
-# Linux/Mac: sudo systemctl start mongodb
-# O directamente: mongod
-
-# Iniciar servidor en modo desarrollo
 npm run dev
 ```
 
 ✅ El backend estará disponible en `http://localhost:3050`
 
 ### 3️⃣ Configurar y Ejecutar el Frontend React (PW1)
-
-**En otra terminal:**
 
 ```bash
 cd Frontend
@@ -177,9 +241,7 @@ npm start
 
 ✅ Disponible en `http://localhost:3000`
 
-### 4️⃣ Configurar y Ejecutar el Frontend Svelte 5 (PW2)
-
-**En otra terminal:**
+### 4️⃣ Configurar y Ejecutar el Frontend Svelte 5
 
 ```bash
 cd Frontend-Svelte
@@ -190,28 +252,15 @@ npm run dev
 
 ✅ Disponible en `http://localhost:5173`
 
-### 4️⃣ Crear Usuario Administrador (Opcional)
-
-Para acceder al panel de administración, necesitas un usuario con rol "Administrador". Puedes:
-
-1. Registrarte como usuario normal
-2. Modificar tu rol manualmente en MongoDB:
-
-```bash
-mongosh renielstore
-db.Users.updateOne(
-  { email: "tuemailaqui@example.com" },
-  { $set: { rol: "Administrador" } }
-)
-```
-
 ## 📚 Documentación Detallada
 
 Cada carpeta tiene su propio README con instrucciones de instalación, estructura, decisiones técnicas y más:
 
 - **[📱 Frontend React README](./Frontend/README.md)** — Documentación del cliente React (PW1)
 - **[⚡ Frontend Svelte 5 README](./Frontend-Svelte/README.md)** — Documentación del cliente Svelte 5 (PW2): runes usadas, endpoints, estructura y decisiones técnicas
-- **[⚙️ Backend README](./Backend/Readme.md)** — Documentación del servidor Node.js
+- **[⚙️ Backend Node.js README](./Backend/Readme.md)** — Documentación del servidor Node.js (PW1)
+- **[🐍 Backend Python README](./Backend-Python/README.md)** — Documentación del servidor FastAPI (PW2 Práctica 2): arquitectura en capas, endpoints, instalación
+- **[🤖 Documentación de IA](./Backend-Python/AI_DOCUMENTATION.md)** — Memoria del uso de IA: prompts utilizados, refinamientos e identificación de errores/alucinaciones
 
 ## 🎯 Funcionalidades Principales
 
